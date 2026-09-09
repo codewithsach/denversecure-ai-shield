@@ -2,17 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/header";
 import { Hero } from "@/components/site/hero";
 import { Services } from "@/components/site/services";
-import { McpSection } from "@/components/site/mcp";
-import { Results } from "@/components/site/results";
+import { CloudMigration } from "@/components/site/cloud";
 import { About } from "@/components/site/about";
 import { Pricing } from "@/components/site/pricing";
-import { Insights } from "@/components/site/insights";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 
-const TITLE = "DenverSecure — Cybersecurity & MCP Security in Denver, CO";
+const TITLE = "DenverSecure — Cybersecurity & Cloud Security in Denver, CO";
 const DESCRIPTION =
-  "DenverSecure delivers penetration testing, application security, and MCP/AI agent security for Series A–C software teams. Denver-based, developer-friendly reporting.";
+  "DenverSecure delivers penetration testing, application security, and cloud migration security for Series A–C software teams. Denver-based, developer-friendly reporting.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "penetration testing Denver, application security, MCP security, AI agent security, red team, DevSecOps",
+          "penetration testing Denver, application security, cloud migration security, cloud security, red team, DevSecOps",
       },
     ],
     scripts: [
@@ -62,11 +60,9 @@ function Index() {
       <main>
         <Hero />
         <Services />
-        <McpSection />
-        <Results />
+        <CloudMigration />
         <About />
         <Pricing />
-        <Insights />
         <Contact />
       </main>
       <Footer />

@@ -24,7 +24,7 @@ export function Footer() {
             </span>
           </span>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Offensive security, application security, and MCP security for software teams. Built in
+            Offensive security, application security, and cloud migration security for software teams. Built in
             Denver, Colorado.
           </p>
           <div className="mt-5 flex gap-2">
@@ -46,7 +46,7 @@ export function Footer() {
           links={[
             ["Security Testing", "#services"],
             ["Application Security", "#services"],
-            ["MCP Security", "#mcp"],
+            ["Cloud Migration & Security", "#cloud"],
             ["Pricing", "#pricing"],
           ]}
         />
@@ -54,8 +54,6 @@ export function Footer() {
           title="Company"
           links={[
             ["About", "#about"],
-            ["Results", "#results"],
-            ["Insights", "#insights"],
             ["Contact", "#contact"],
           ]}
         />
@@ -63,7 +61,7 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-semibold">Security notes, monthly</h3>
           <p className="mt-3 text-sm text-muted-foreground">
-            Findings, AI agent risks, and practical fixes. No vendor noise.
+            Findings, cloud risks, and practical fixes. No vendor noise.
           </p>
           <form onSubmit={subscribe} className="mt-4 flex flex-col gap-2 sm:flex-row">
             <input

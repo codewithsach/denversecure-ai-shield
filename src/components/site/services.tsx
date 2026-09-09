@@ -1,4 +1,4 @@
-import { Bot, Code2, Crosshair, FileText, Search, Wrench, ArrowRight } from "lucide-react";
+import { Cloud, Code2, Crosshair, FileText, Search, Wrench, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 
 const SERVICES = [
@@ -13,9 +13,9 @@ const SERVICES = [
     body: "Secure code review, DevSecOps pipeline design, SAST/DAST tuning, and API security testing built into how you already ship. We cut false positives so your engineers trust the gate instead of routing around it.",
   },
   {
-    icon: Bot,
-    title: "MCP Security",
-    body: "Model Context Protocol and AI agent integrations reviewed end to end: tool permissions, prompt injection, and data exfiltration paths. Purpose-built for teams putting LLMs on the critical path.",
+    icon: Cloud,
+    title: "Cloud Migration & Security",
+    body: "Secure lift-and-shift or cloud-native migration to AWS, Azure, or GCP. Includes posture hardening, IAM review, and ongoing monitoring so your cloud isn't your weakest link.",
   },
 ];
 

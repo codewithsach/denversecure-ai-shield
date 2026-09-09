@@ -6,7 +6,7 @@ import { Reveal } from "@/components/reveal";
 const SERVICES = [
   "Security Testing",
   "Application Security",
-  "MCP / AI Security",
+  "Cloud Migration & Security",
   "Not sure yet",
 ];
 

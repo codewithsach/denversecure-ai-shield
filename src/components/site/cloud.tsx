@@ -1,17 +1,17 @@
 import { Check } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import mcpShield from "@/assets/mcp-shield.jpg";
+import cloudShield from "@/assets/cloud-shield.jpg";
 
 const POINTS = [
-  "Tool and permission audits across every MCP server your agents can reach",
-  "Prompt injection testing — direct, indirect, and via poisoned tool output",
-  "LLM vulnerability assessments: data exfiltration, over-scoped credentials, unsafe autonomy",
-  "Guardrail and logging design so agent actions stay reviewable after we leave",
+  "Secure migration planning for AWS, Azure, and GCP",
+  "Identity and access hardening before go-live",
+  "Data encryption in transit and at rest",
+  "Post-migration monitoring and threat detection",
 ];
 
-export function McpSection() {
+export function CloudMigration() {
   return (
-    <section id="mcp" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="cloud" className="relative overflow-hidden py-24 sm:py-32">
       <div className="mesh-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
         <Reveal>
@@ -19,16 +19,10 @@ export function McpSection() {
             Our differentiator
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            MCP Security by DenverSecure
+            Move to the Cloud Without the Risk
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Model Context Protocol lets AI agents call your tools, read your data, and act on your
-            systems. That's a new attack surface with old consequences: an agent that can be talked
-            into running a query is a privileged user without a password policy.
-          </p>
-          <p className="mt-4 text-muted-foreground">
-            We assess the whole chain — model, protocol, tool servers, and the humans who approve
-            actions — and give your team concrete controls, not AI-risk theater.
+            Most Denver businesses move to the cloud for speed and cost — but skip the security step. We migrate and harden in the same engagement: secure architecture review, identity lockdown, data encryption, and continuous monitoring.
           </p>
           <ul className="mt-8 grid gap-3">
             {POINTS.map((p) => (
@@ -42,15 +36,15 @@ export function McpSection() {
             href="#contact"
             className="mt-9 inline-flex rounded-xl bg-amber px-6 py-3.5 text-sm font-semibold text-amber-foreground transition-transform hover:-translate-y-0.5"
           >
-            Scope an AI security review
+            Plan Your Secure Migration
           </a>
         </Reveal>
 
         <Reveal delay={120}>
           <div className="glass glow-teal rounded-3xl p-4">
             <img
-              src={mcpShield}
-              alt="AI agent node protected by a shield, connected to surrounding tool integrations"
+              src={cloudShield}
+              alt="Geometric cloud and shield security illustration"
               loading="lazy"
               width={1024}
               height={1024}
