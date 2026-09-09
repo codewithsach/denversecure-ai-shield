@@ -31,8 +31,8 @@ export function Hero() {
 
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
             Modern threats move faster than release cycles — supply-chain compromises, exposed
-            APIs, and now autonomous AI agents with real credentials. We test the way attackers
-            actually work, then hand your engineers findings they can ship fixes against.
+            APIs, and cloud misconfigurations that leak data before anyone notices. We test the way
+            attackers actually work, then hand your engineers findings they can ship fixes against.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -67,11 +67,11 @@ export function Hero() {
           <div className="flex items-center gap-2 border-b border-border px-4 py-2.5 font-mono text-xs text-muted-foreground">
             <Terminal className="h-3.5 w-3.5 text-teal" /> denversecure — engagement.sh
           </div>
-          <pre className="overflow-x-auto px-4 py-4 font-mono text-xs leading-relaxed text-muted-foreground">
+<pre className="overflow-x-auto px-4 py-4 font-mono text-xs leading-relaxed text-muted-foreground">
             <code>{`$ dsec scan --target api.yourcompany.com --profile series-b
 [✓] recon complete            72 assets mapped
 [!] 3 high  · 9 medium findings   (auth, IDOR, SSRF)
-[✓] mcp agent surface           prompt-injection harness ready
+[✓] cloud posture review      IAM, encryption, monitoring ready
 → report + remediation pairing scheduled`}</code>
           </pre>
         </div>

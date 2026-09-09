@@ -4,11 +4,9 @@ import { ThemeToggle } from "@/components/theme";
 
 const NAV = [
   { href: "#services", label: "Services" },
-  { href: "#mcp", label: "MCP Security" },
-  { href: "#results", label: "Results" },
+  { href: "#cloud", label: "Cloud Security" },
   { href: "#about", label: "About" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#insights", label: "Insights" },
 ];
 
 export function Header() {

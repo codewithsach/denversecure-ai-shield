@@ -14,8 +14,8 @@ const SERVICES = [
   },
   {
     icon: Bot,
-    title: "MCP Security",
-    body: "Model Context Protocol and AI agent integrations reviewed end to end: tool permissions, prompt injection, and data exfiltration paths. Purpose-built for teams putting LLMs on the critical path.",
+    title: "Cloud Migration & Security",
+    body: "Secure lift-and-shift or cloud-native migration to AWS, Azure, or GCP. Includes posture hardening, IAM review, and ongoing monitoring so your cloud isn't your weakest link.",
   },
 ];
 
