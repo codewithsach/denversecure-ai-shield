@@ -24,8 +24,7 @@ export function Footer() {
             </span>
           </span>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Offensive security, application security, and cloud migration security for software teams. Built in
-            Denver, Colorado.
+            Offensive security, application security, and cloud migration security for software teams that ship fast.
           </p>
           <div className="mt-5 flex gap-2">
             {[Linkedin, Github, Twitter].map((Icon, i) => (
@@ -61,7 +60,7 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-semibold">Security notes, monthly</h3>
           <p className="mt-3 text-sm text-muted-foreground">
-            Findings, cloud risks, and practical fixes. No vendor noise.
+            Real findings, practical fixes, no vendor noise.
           </p>
           <form onSubmit={subscribe} className="mt-4 flex flex-col gap-2 sm:flex-row">
             <input

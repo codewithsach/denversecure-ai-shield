@@ -8,9 +8,9 @@ import { Pricing } from "@/components/site/pricing";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 
-const TITLE = "AlpineRed Security — Cybersecurity & Cloud Security in Denver, CO";
+const TITLE = "AlpineRed Security — Penetration Testing & Application Security";
 const DESCRIPTION =
-  "AlpineRed Security delivers penetration testing, application security, and cloud migration security for Series A–C software teams. Denver-based, developer-friendly reporting.";
+  "AlpineRed Security delivers penetration testing, application security, and cloud migration security for Series A–C software teams, with clear, developer-friendly reporting.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "penetration testing Denver, application security, cloud migration security, cloud security, red team, DevSecOps",
+          "penetration testing, application security, cloud security, red team, DevSecOps, security assessment",
       },
     ],
     scripts: [
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
             postalCode: "80210",
             addressCountry: "US",
           },
-          email: "hello@denversecure.com",
+          email: "hello@alpineredsecurity.com",
           telephone: "+1-303-555-0142",
         }),
       },
