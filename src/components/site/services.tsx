@@ -59,7 +59,7 @@ export function Services() {
         </div>
 
         <Reveal className="mt-20">
-          <h3 className="text-2xl font-semibold tracking-tight">How DenverSecure works</h3>
+          <h3 className="text-2xl font-semibold tracking-tight">How AlpineRed Security works</h3>
           <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step, i) => (
               <li key={step.name} className="relative rounded-xl border border-border p-5">

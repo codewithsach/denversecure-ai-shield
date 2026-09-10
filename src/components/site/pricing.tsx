@@ -16,7 +16,7 @@ const TIERS = [
     featured: false,
   },
   {
-    name: "DenverSecure Retainer",
+    name: "AlpineRed Security Retainer",
     price: "Monthly",
     cadence: "ongoing partnership",
     copy: "Continuous coverage for teams shipping every week, not every quarter.",
