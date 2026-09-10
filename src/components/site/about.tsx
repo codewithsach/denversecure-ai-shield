@@ -21,7 +21,7 @@ export function About() {
           </div>
         </Reveal>
         <Reveal delay={110}>
-          <p className="font-mono text-xs tracking-widest text-teal uppercase">Denver roots</p>
+          <p className="font-mono text-xs tracking-widest text-teal uppercase">Who we are</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             Built by engineers who got tired of unreadable pentest PDFs.
           </h2>
@@ -31,7 +31,7 @@ export function About() {
             know which findings actually matter to a roadmap.
           </p>
           <p className="mt-4 text-muted-foreground">
-            We work from Denver, Colorado, in the same time zone as most of our clients' standups —
+            We work in the same time zone as most of our clients' standups —
             close enough to sit in your office for a remediation day, remote-native enough to run
             the whole engagement on Slack.
           </p>

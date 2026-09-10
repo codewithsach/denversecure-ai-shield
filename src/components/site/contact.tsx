@@ -54,7 +54,7 @@ export function Contact() {
               <MapPin className="h-4 w-4 text-teal" /> 2155 E. Wesley Ave., Denver, CO 80210
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-teal" /> hello@denversecure.com
+              <Mail className="h-4 w-4 text-teal" /> hello@alpineredsecurity.com
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-teal" /> (303) 555-0142
