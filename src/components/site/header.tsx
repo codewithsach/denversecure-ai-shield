@@ -32,7 +32,7 @@ export function Header() {
             <ShieldCheck className="h-5 w-5" />
           </span>
           <span className="truncate text-lg font-semibold tracking-tight">
-            Denver<span className="text-teal">Secure</span>
+            Alpine<span className="text-teal">Red</span>
           </span>
         </a>
 

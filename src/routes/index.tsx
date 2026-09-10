@@ -8,9 +8,9 @@ import { Pricing } from "@/components/site/pricing";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 
-const TITLE = "DenverSecure — Cybersecurity & Cloud Security in Denver, CO";
+const TITLE = "AlpineRed Security — Cybersecurity & Cloud Security in Denver, CO";
 const DESCRIPTION =
-  "DenverSecure delivers penetration testing, application security, and cloud migration security for Series A–C software teams. Denver-based, developer-friendly reporting.";
+  "AlpineRed Security delivers penetration testing, application security, and cloud migration security for Series A–C software teams. Denver-based, developer-friendly reporting.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,15 +33,15 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          name: "DenverSecure",
+          name: "AlpineRed Security",
           description: DESCRIPTION,
           areaServed: "United States",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "1600 Wynkoop St, Suite 300",
+            streetAddress: "2155 E. Wesley Ave.",
             addressLocality: "Denver",
             addressRegion: "CO",
-            postalCode: "80202",
+            postalCode: "80210",
             addressCountry: "US",
           },
           email: "hello@denversecure.com",

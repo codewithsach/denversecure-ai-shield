@@ -9,14 +9,14 @@ export function About() {
           <div className="glass overflow-hidden rounded-3xl p-3">
             <img
               src={denverOffice}
-              alt="DenverSecure workspace overlooking the Front Range"
+              alt="AlpineRed Security workspace overlooking the Front Range"
               loading="lazy"
               width={1280}
               height={960}
               className="w-full rounded-2xl object-cover"
             />
             <p className="px-3 py-3 font-mono text-xs text-muted-foreground">
-              Team photo placeholder — LoDo, Denver
+              Team photo placeholder — Denver
             </p>
           </div>
         </Reveal>
@@ -26,7 +26,7 @@ export function About() {
             Built by engineers who got tired of unreadable pentest PDFs.
           </h2>
           <p className="mt-5 text-muted-foreground">
-            DenverSecure is a small, senior team of offensive security engineers and former platform
+            AlpineRed Security is a small, senior team of offensive security engineers and former platform
             developers. We've shipped production code, carried pagers, and broken enough systems to
             know which findings actually matter to a roadmap.
           </p>

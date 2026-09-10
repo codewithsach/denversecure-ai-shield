@@ -51,7 +51,7 @@ export function Contact() {
 
           <ul className="mt-8 grid gap-3 text-sm text-muted-foreground">
             <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-teal" /> 1600 Wynkoop St, Suite 300, Denver, CO 80202
+              <MapPin className="h-4 w-4 text-teal" /> 2155 E. Wesley Ave., Denver, CO 80210
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-4 w-4 text-teal" /> hello@denversecure.com

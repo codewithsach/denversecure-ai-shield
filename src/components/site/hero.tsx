@@ -24,7 +24,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
-            <span className="text-gradient">DenverSecure</span>
+            <span className="text-gradient">AlpineRed Security</span>
             <br />
             Secure Your Software. From Denver to the Cloud.
           </h1>

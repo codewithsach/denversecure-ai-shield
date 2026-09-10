@@ -20,7 +20,7 @@ export function Footer() {
               <ShieldCheck className="h-5 w-5" />
             </span>
             <span className="text-lg font-semibold tracking-tight">
-              Denver<span className="text-teal">Secure</span>
+              Alpine<span className="text-teal">Red</span>
             </span>
           </span>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
@@ -32,7 +32,7 @@ export function Footer() {
               <a
                 key={i}
                 href="#top"
-                aria-label="DenverSecure social profile"
+                aria-label="AlpineRed Security social profile"
                 className="grid h-9 w-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:text-teal"
               >
                 <Icon className="h-4 w-4" />
@@ -81,16 +81,16 @@ export function Footer() {
             </button>
           </form>
           <p className="mt-6 text-xs text-muted-foreground">
-            1600 Wynkoop St, Suite 300
+            2155 E. Wesley Ave.
             <br />
-            Denver, CO 80202
+            Denver, CO 80210
           </p>
         </div>
       </div>
 
       <div className="mx-auto mt-12 max-w-7xl border-t border-border px-5 pt-6 lg:px-8">
         <p className="font-mono text-xs text-muted-foreground">
-          © {new Date().getFullYear()} DenverSecure · Denver, Colorado
+          © {new Date().getFullYear()} AlpineRed Security · Denver, Colorado
         </p>
       </div>
     </footer>
