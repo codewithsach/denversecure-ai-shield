@@ -22,7 +22,7 @@ export function CloudMigration() {
             Move to the Cloud Without the Risk
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Most Denver businesses move to the cloud for speed and cost — but skip the security step. We migrate and harden in the same engagement: secure architecture review, identity lockdown, data encryption, and continuous monitoring.
+            Most teams move to the cloud for speed and cost — but skip the security step. We migrate and harden in the same engagement: secure architecture review, identity lockdown, data encryption, and continuous monitoring.
           </p>
           <ul className="mt-8 grid gap-3">
             {POINTS.map((p) => (

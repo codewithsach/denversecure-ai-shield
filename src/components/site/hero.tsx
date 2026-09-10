@@ -1,7 +1,7 @@
 import { ArrowRight, MapPin, ShieldCheck, Terminal } from "lucide-react";
 import heroMountains from "@/assets/hero-mountains.jpg";
 
-const BADGES = ["SOC 2 Compliant", "OWASP Member", "Denver-Based"];
+const BADGES = ["SOC 2 Compliant", "OWASP Member", "Senior Engineers Only"];
 
 export function Hero() {
   return (
@@ -20,13 +20,13 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal/10 px-3 py-1 font-mono text-xs text-teal">
-            <MapPin className="h-3.5 w-3.5" /> Denver, Colorado
+            <ShieldCheck className="h-3.5 w-3.5" /> Penetration Testing · AppSec · Cloud Security
           </span>
 
           <h1 className="mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
             <span className="text-gradient">AlpineRed Security</span>
             <br />
-            Secure Your Software. From Denver to the Cloud.
+            Secure Your Software. From Code to Cloud.
           </h1>
 
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
@@ -65,10 +65,10 @@ export function Hero() {
 
         <div className="glass mt-14 max-w-xl overflow-hidden rounded-2xl">
           <div className="flex items-center gap-2 border-b border-border px-4 py-2.5 font-mono text-xs text-muted-foreground">
-            <Terminal className="h-3.5 w-3.5 text-teal" /> denversecure — engagement.sh
+            <Terminal className="h-3.5 w-3.5 text-teal" /> alpinered — engagement.sh
           </div>
 <pre className="overflow-x-auto px-4 py-4 font-mono text-xs leading-relaxed text-muted-foreground">
-            <code>{`$ dsec scan --target api.yourcompany.com --profile series-b
+            <code>{`$ alpinered scan --target api.yourcompany.com --profile series-b
 [✓] recon complete            72 assets mapped
 [!] 3 high  · 9 medium findings   (auth, IDOR, SSRF)
 [✓] cloud posture review      IAM, encryption, monitoring ready
