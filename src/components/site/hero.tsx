@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin, ShieldCheck, Terminal } from "lucide-react";
+import { ArrowRight, ShieldCheck, Terminal } from "lucide-react";
 import heroMountains from "@/assets/hero-mountains.jpg";
 
 const BADGES = ["SOC 2 Compliant", "OWASP Member", "Senior Engineers Only"];
