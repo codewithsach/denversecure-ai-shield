@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
-const STORAGE_KEY = "denversecure-theme";
+const STORAGE_KEY = "alpinered-theme";
 
 export function ThemeToggle() {
   const [dark, setDark] = useState(true);
