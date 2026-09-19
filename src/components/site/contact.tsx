@@ -45,7 +45,7 @@ export function Contact() {
             className="glass mt-8 flex items-center gap-4 rounded-lg p-5 transition-transform hover:-translate-y-1"
           >
             <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber">
-              <CalendarClock className="h-5 w-5" />
+              <Mail className="h-5 w-5" />
             </span>
             <span className="min-w-0">
                <span className="block text-sm font-semibold">hello@cipherhill.com</span>
