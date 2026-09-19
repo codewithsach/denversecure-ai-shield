@@ -15,7 +15,7 @@ export function Process() {
           <p className="font-mono text-xs tracking-widest text-teal uppercase">How It Works</p>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">A clear path forward.</h2>
         </Reveal>
-        <ol className="mt-10 grid gap-8 md:grid-cols-3">
+        <ol className="mt-8 grid gap-8 md:grid-cols-3">
           {STEPS.map((step, index) => (
             <Reveal key={step.name} delay={index * 80} as="li">
               <div className="border-t border-border pt-5">

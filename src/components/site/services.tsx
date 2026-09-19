@@ -35,7 +35,7 @@ export function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {SERVICES.map((s, i) => (
             <Reveal key={s.title} delay={i * 90} as="article">
               <div className="glass group h-full rounded-lg p-7 transition-transform hover:-translate-y-1">

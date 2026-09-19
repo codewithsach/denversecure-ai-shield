@@ -19,7 +19,7 @@ export function Audience() {
             From early-stage products to growing technology environments, CipherHill helps teams identify and reduce security risk as they build and scale.
           </p>
         </Reveal>
-        <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {AUDIENCES.map((audience, index) => (
             <Reveal key={audience.label} delay={index * 70}>
               <div className="flex min-h-36 h-full flex-col justify-between bg-background p-6">
