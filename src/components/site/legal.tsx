@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal";
 
 export function Legal() {
   return (
-    <section className="border-t border-border py-12">
+    <section className="border-t border-border py-10">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-2 lg:px-8">
         <Reveal as="article">
           <div id="privacy" className="scroll-mt-28">
