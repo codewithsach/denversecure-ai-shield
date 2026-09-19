@@ -28,9 +28,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="contact" className="relative overflow-hidden py-10 sm:py-14">
       <div className="mesh-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-widest text-teal uppercase">Get Started</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">

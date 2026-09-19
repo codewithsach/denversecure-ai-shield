@@ -10,7 +10,7 @@ const AUDIENCES = [
 
 export function Audience() {
   return (
-    <section id="who-we-help" className="py-24 sm:py-32">
+    <section id="who-we-help" className="py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-widest text-teal uppercase">Who We Help</p>
@@ -19,7 +19,7 @@ export function Audience() {
             From early-stage products to growing technology environments, CipherHill helps teams identify and reduce security risk as they build and scale.
           </p>
         </Reveal>
-        <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {AUDIENCES.map((audience, index) => (
             <Reveal key={audience.label} delay={index * 70}>
               <div className="flex min-h-36 h-full flex-col justify-between bg-background p-6">

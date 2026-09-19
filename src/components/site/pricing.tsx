@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 sm:py-32">
+    <section id="pricing" className="py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
           <div className="glass grid gap-8 rounded-lg p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
