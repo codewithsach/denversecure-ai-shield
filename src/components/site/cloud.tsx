@@ -1,55 +1,27 @@
-import { Check } from "lucide-react";
+import { ArrowRight, Bot, Workflow } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import cloudShield from "@/assets/cloud-shield.jpg";
-
-const POINTS = [
-  "Secure migration planning for AWS, Azure, and GCP",
-  "Identity and access hardening before go-live",
-  "Data encryption in transit and at rest",
-  "Post-migration monitoring and threat detection",
-];
+import { Button } from "@/components/ui/button";
 
 export function CloudMigration() {
   return (
-    <section id="cloud" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="ai-security" className="relative overflow-hidden py-24 sm:py-32">
       <div className="mesh-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
-          <p className="font-mono text-xs tracking-widest text-amber uppercase">
-            Our differentiator
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Move to the Cloud Without the Risk
-          </h2>
-          <p className="mt-5 text-muted-foreground">
-            Most teams move to the cloud for speed and cost — but skip the security step. We migrate and harden in the same engagement: secure architecture review, identity lockdown, data encryption, and continuous monitoring.
-          </p>
-          <ul className="mt-8 grid gap-3">
-            {POINTS.map((p) => (
-              <li key={p} className="flex gap-3 text-sm text-muted-foreground">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
-                {p}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="#contact"
-            className="mt-9 inline-flex rounded-xl bg-amber px-6 py-3.5 text-sm font-semibold text-amber-foreground transition-transform hover:-translate-y-0.5"
-          >
-            Plan Your Secure Migration
-          </a>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="glass glow-teal rounded-3xl p-4">
-            <img
-              src={cloudShield}
-              alt="Geometric cloud and shield security illustration"
-              loading="lazy"
-              width={1024}
-              height={1024}
-              className="w-full rounded-2xl"
-            />
+          <div className="glass grid gap-8 rounded-lg p-8 md:grid-cols-[auto_1fr_auto] md:items-center md:p-10">
+            <span className="grid h-14 w-14 place-items-center rounded-lg bg-teal/15 text-teal ring-1 ring-teal/30">
+              <Bot className="h-7 w-7" />
+            </span>
+            <div>
+              <p className="font-mono text-xs tracking-widest text-amber uppercase">Focused capability</p>
+              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">AI Security &amp; Automation</h2>
+              <p className="mt-4 max-w-3xl text-muted-foreground">
+                AI is changing how software is built and operated. We help teams identify security risks in AI-enabled applications and automate repeatable security testing and security processes.
+              </p>
+            </div>
+            <Button asChild variant="outline" className="border-teal/40 text-teal hover:bg-teal/10 hover:text-teal">
+              <a href="#contact">Explore AI Security <ArrowRight /></a>
+            </Button>
           </div>
         </Reveal>
       </div>
