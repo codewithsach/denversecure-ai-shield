@@ -1,4 +1,4 @@
-import { ArrowRight, Bot, Workflow } from "lucide-react";
+import { ArrowRight, Bot } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 
