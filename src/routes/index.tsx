@@ -57,12 +57,12 @@ function Index() {
         <Hero />
         <Services />
         <CloudMigration />
-         <Audience />
-         <Process />
+        <Audience />
+        <Process />
         <About />
         <Pricing />
         <Contact />
-         <Legal />
+        <Legal />
       </main>
       <Footer />
     </div>
