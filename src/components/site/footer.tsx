@@ -2,8 +2,8 @@ import { Mail, ShieldCheck } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-16">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
+    <footer className="border-t border-border py-12">
+      <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <span className="flex items-center gap-2.5">
             <span className="grid h-9 w-9 place-items-center rounded-lg bg-teal/15 text-teal ring-1 ring-teal/30">
@@ -42,7 +42,7 @@ export function Footer() {
         <FooterCol title="Legal" links={[["Privacy Policy", "#privacy"], ["Terms of Service", "#terms"]]} />
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl border-t border-border px-5 pt-6 lg:px-8">
+      <div className="mx-auto mt-8 max-w-7xl border-t border-border px-5 pt-6 lg:px-8">
         <p className="font-mono text-xs text-muted-foreground">
           © 2026 CipherHill. All rights reserved.
         </p>
