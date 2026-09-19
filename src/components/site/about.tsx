@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal";
 
 export function About() {
   return (
-    <section id="about" className="py-24 sm:py-32">
+    <section id="about" className="py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
           <div className="grid gap-8 border-y border-border py-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
