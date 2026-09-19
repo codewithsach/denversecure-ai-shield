@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Menu, ShieldCheck, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme";
+import { Button } from "@/components/ui/button";
 
 const NAV = [
   { href: "#services", label: "Services" },
-  { href: "#cloud", label: "Cloud Security" },
+  { href: "#who-we-help", label: "Who We Help" },
   { href: "#about", label: "About" },
   { href: "#pricing", label: "Pricing" },
 ];
@@ -31,9 +32,7 @@ export function Header() {
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal/15 text-teal ring-1 ring-teal/30">
             <ShieldCheck className="h-5 w-5" />
           </span>
-          <span className="truncate text-lg font-semibold tracking-tight">
-            Alpine<span className="text-teal">Red</span>
-          </span>
+          <span className="truncate text-lg font-semibold tracking-tight">Cipher<span className="text-teal">Hill</span></span>
         </a>
 
         <div className="flex items-center gap-2">
@@ -49,20 +48,20 @@ export function Header() {
             ))}
           </nav>
           <ThemeToggle />
-          <a
-            href="#contact"
-            className="hidden rounded-lg bg-amber px-4 py-2 text-sm font-semibold text-amber-foreground transition-transform hover:-translate-y-0.5 sm:inline-flex"
-          >
-            Book a Call
-          </a>
-          <button
+          <Button asChild className="hidden bg-amber text-amber-foreground hover:bg-amber/90 sm:inline-flex">
+            <a href="#contact">Book a Call</a>
+          </Button>
+          <Button
             type="button"
+            variant="outline"
+            size="icon"
             aria-label="Toggle menu"
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-border text-foreground lg:hidden"
+            className="shrink-0 lg:hidden"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          </button>
+          </Button>
         </div>
       </div>
 

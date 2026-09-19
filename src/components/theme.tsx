@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const STORAGE_KEY = "alpinered-theme";
+const STORAGE_KEY = "cipherhill-theme";
 
 export function ThemeToggle() {
   const [dark, setDark] = useState(true);
@@ -21,13 +22,15 @@ export function ThemeToggle() {
   };
 
   return (
-    <button
+    <Button
       type="button"
+      variant="outline"
+      size="icon"
       onClick={toggle}
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
-      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-border bg-surface/60 text-muted-foreground transition-colors hover:text-teal"
+      className="shrink-0 bg-surface/60 text-muted-foreground hover:text-teal"
     >
       {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-    </button>
+    </Button>
   );
 }

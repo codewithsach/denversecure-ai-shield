@@ -1,12 +1,14 @@
 import { useState, type FormEvent } from "react";
-import { CalendarClock, Mail, MapPin, Phone } from "lucide-react";
-import { toast } from "sonner";
+import { ArrowRight, Mail } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { Button } from "@/components/ui/button";
 
 const SERVICES = [
-  "Security Testing",
+  "Software Testing & Security",
   "Application Security",
-  "Cloud Migration & Security",
+  "Cloud Security & Migration",
+  "Risk & Compliance",
+  "AI Security & Automation",
   "Not sure yet",
 ];
 
@@ -15,9 +17,14 @@ export function Contact() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Thanks — we'll reply within one business day.");
-    e.currentTarget.reset();
-    setService(SERVICES[0]);
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "");
+    const company = String(data.get("company") ?? "");
+    const email = String(data.get("email") ?? "");
+    const message = String(data.get("message") ?? "");
+    const subject = encodeURIComponent(`CipherHill inquiry: ${service}`);
+    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nService: ${service}\n\n${message}`);
+    window.location.href = `mailto:hello@cipherhill.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -25,48 +32,34 @@ export function Contact() {
       <div className="mesh-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
       <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <Reveal>
-          <p className="font-mono text-xs tracking-widest text-teal uppercase">Get started</p>
+          <p className="font-mono text-xs tracking-widest text-teal uppercase">Get Started</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Book a security assessment.
+            Ready to Secure Your Software?
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Tell us what you're shipping and we'll come back with a scope, a timeline, and a fixed
-            number — usually within one business day.
+            Whether you're building a new application, moving to the cloud, or strengthening your existing security program, let's talk.
           </p>
 
           <a
-            href="#contact"
-            className="glass mt-8 flex items-center gap-4 rounded-2xl p-5 transition-transform hover:-translate-y-1"
+            href="mailto:hello@cipherhill.com"
+            className="glass mt-8 flex items-center gap-4 rounded-lg p-5 transition-transform hover:-translate-y-1"
           >
             <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber">
-              <CalendarClock className="h-5 w-5" />
+              <Mail className="h-5 w-5" />
             </span>
             <span className="min-w-0">
-              <span className="block text-sm font-semibold">Book a 30-min call</span>
-              <span className="block text-xs text-muted-foreground">
-                Pick a slot — Mountain Time, no sales engineer relay
-              </span>
+               <span className="block text-sm font-semibold">hello@cipherhill.com</span>
+               <span className="block text-xs text-muted-foreground">Tell us what you need help securing.</span>
             </span>
           </a>
 
-          <ul className="mt-8 grid gap-3 text-sm text-muted-foreground">
-            <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 text-teal" /> 2155 E. Wesley Ave., Denver, CO 80210
-            </li>
-            <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-teal" /> hello@alpineredsecurity.com
-            </li>
-            <li className="flex items-center gap-3">
-              <Phone className="h-4 w-4 text-teal" /> (303) 555-0142
-            </li>
-          </ul>
         </Reveal>
 
         <Reveal delay={110}>
-          <form onSubmit={onSubmit} className="glass grid gap-5 rounded-3xl p-7 sm:p-9">
+          <form onSubmit={onSubmit} className="glass grid gap-5 rounded-lg p-7 sm:p-9">
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label="Name" name="name">
-                <input required name="name" id="name" className={inputClass} placeholder="Jane Doe" />
+                <input required name="name" id="name" autoComplete="name" className={inputClass} placeholder="Your name" />
               </Field>
               <Field label="Company" name="company">
                 <input
@@ -74,7 +67,8 @@ export function Contact() {
                   name="company"
                   id="company"
                   className={inputClass}
-                  placeholder="Acme Inc."
+                  autoComplete="organization"
+                  placeholder="Your company"
                 />
               </Field>
             </div>
@@ -85,7 +79,8 @@ export function Contact() {
                 name="email"
                 id="email"
                 className={inputClass}
-                placeholder="jane@acme.com"
+                autoComplete="email"
+                placeholder="you@company.com"
               />
             </Field>
             <Field label="Service interest" name="service">
@@ -110,15 +105,12 @@ export function Contact() {
                 id="message"
                 rows={4}
                 className={inputClass}
-                placeholder="What are you building, and what's driving the timeline?"
+                placeholder="How can CipherHill help?"
               />
             </Field>
-            <button
-              type="submit"
-              className="mt-1 rounded-xl bg-amber px-6 py-3.5 text-sm font-semibold text-amber-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Request assessment
-            </button>
+            <Button type="submit" size="lg" className="mt-1 bg-amber text-amber-foreground hover:bg-amber/90">
+              Book a Call <ArrowRight />
+            </Button>
           </form>
         </Reveal>
       </div>

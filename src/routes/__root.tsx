@@ -78,7 +78,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "AlpineRed Security" },
+      { name: "author", content: "CipherHill" },
+      { property: "og:site_name", content: "CipherHill" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       {

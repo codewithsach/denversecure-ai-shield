@@ -1,7 +1,8 @@
-import { ArrowRight, ShieldCheck, Terminal } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
 import heroMountains from "@/assets/hero-mountains.jpg";
+import { Button } from "@/components/ui/button";
 
-const BADGES = ["SOC 2 Compliant", "OWASP Member", "Senior Engineers Only"];
+const BADGES = ["Security-Focused", "Practical Approach", "Actionable Results"];
 
 export function Hero() {
   return (
@@ -18,36 +19,26 @@ export function Hero() {
       />
 
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal/10 px-3 py-1 font-mono text-xs text-teal">
-            <ShieldCheck className="h-3.5 w-3.5" /> Penetration Testing · AppSec · Cloud Security
-          </span>
+        <div className="max-w-3xl py-8 sm:py-12">
+          <p className="font-mono text-sm font-medium tracking-widest text-teal uppercase">CipherHill</p>
+          <p className="mt-2 text-sm text-muted-foreground">Cybersecurity &amp; Technology Solutions</p>
 
-          <h1 className="mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
-            <span className="text-gradient">AlpineRed Security</span>
-            <br />
-            Secure Your Software. From Code to Cloud.
+          <h1 className="mt-7 text-4xl leading-[1.08] font-semibold sm:text-6xl">
+            Secure Your Software.<br />
+            <span className="text-gradient">From Code to Cloud.</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Modern threats move faster than release cycles — supply-chain compromises, exposed
-            APIs, and cloud misconfigurations that leak data before anyone notices. We test the way
-            attackers actually work, then hand your engineers findings they can ship fixes against.
+            We help businesses build, test, and secure their software, applications, cloud environments, and security programs.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-amber px-6 py-3.5 text-sm font-semibold text-amber-foreground transition-transform hover:-translate-y-0.5"
-            >
-              Book a Security Assessment <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 rounded-xl border border-teal/40 px-6 py-3.5 text-sm font-semibold text-teal transition-colors hover:bg-teal/10"
-            >
-              View Services
-            </a>
+            <Button asChild size="lg" className="bg-amber text-amber-foreground hover:bg-amber/90">
+              <a href="#contact">Book a Security Assessment <ArrowRight /></a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-teal/40 text-teal hover:bg-teal/10 hover:text-teal">
+              <a href="#services">View Services</a>
+            </Button>
           </div>
 
           <ul className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-muted-foreground">
@@ -63,18 +54,6 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="glass mt-14 max-w-xl overflow-hidden rounded-2xl">
-          <div className="flex items-center gap-2 border-b border-border px-4 py-2.5 font-mono text-xs text-muted-foreground">
-            <Terminal className="h-3.5 w-3.5 text-teal" /> alpinered — engagement.sh
-          </div>
-<pre className="overflow-x-auto px-4 py-4 font-mono text-xs leading-relaxed text-muted-foreground">
-            <code>{`$ alpinered scan --target api.yourcompany.com --profile series-b
-[✓] recon complete            72 assets mapped
-[!] 3 high  · 9 medium findings   (auth, IDOR, SSRF)
-[✓] cloud posture review      IAM, encryption, monitoring ready
-→ report + remediation pairing scheduled`}</code>
-          </pre>
-        </div>
       </div>
     </section>
   );
