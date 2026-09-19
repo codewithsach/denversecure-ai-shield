@@ -14,6 +14,7 @@ export function About() {
               <p>CipherHill is a cybersecurity and technology services company helping businesses build, test, and secure modern software and cloud environments.</p>
               <p>Our approach combines software testing, application security, cloud security, risk management, and security automation to help teams reduce security risk without unnecessary complexity.</p>
             </div>
+          </div>
         </Reveal>
       </div>
     </section>

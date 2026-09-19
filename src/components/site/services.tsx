@@ -1,4 +1,4 @@
-import { ArrowRight, Cloud, Code2, Crosshair, FileText, Search, ShieldCheck, Wrench } from "lucide-react";
+import { ArrowRight, Cloud, Code2, Crosshair, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 
 const SERVICES = [
@@ -22,12 +22,6 @@ const SERVICES = [
     title: "Risk & Compliance",
     body: "Understand security risks, identify gaps, and build practical security controls and compliance readiness.",
   },
-];
-
-const STEPS = [
-  { icon: Search, name: "Understand", copy: "We learn about your software, environment, and security concerns." },
-  { icon: FileText, name: "Assess", copy: "We test, review, and identify security risks." },
-  { icon: Wrench, name: "Improve", copy: "We provide clear findings and practical recommendations." },
 ];
 
 export function Services() {
@@ -62,22 +56,6 @@ export function Services() {
           ))}
         </div>
 
-        <Reveal className="mt-24" as="section">
-          <p className="font-mono text-xs tracking-widest text-teal uppercase">How It Works</p>
-          <h3 className="mt-3 text-3xl font-semibold sm:text-4xl">A clear path forward.</h3>
-          <ol className="mt-10 grid gap-6 md:grid-cols-3">
-            {STEPS.map((step, i) => (
-              <li key={step.name} className="relative border-t border-border pt-5">
-                <span className="font-mono text-xs text-amber">0{i + 1} —</span>
-                <span className="mt-3 flex items-center gap-2 text-base font-semibold">
-                  <step.icon className="h-4 w-4 text-teal" />
-                  {step.name}
-                </span>
-                <p className="mt-2 text-sm text-muted-foreground">{step.copy}</p>
-              </li>
-            ))}
-          </ol>
-        </Reveal>
       </div>
     </section>
   );

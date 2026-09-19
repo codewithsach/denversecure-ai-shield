@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Mail } from "lucide-react";
-import { toast } from "sonner";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 
@@ -18,9 +17,14 @@ export function Contact() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success("Thanks — your inquiry is ready for CipherHill.");
-    e.currentTarget.reset();
-    setService(SERVICES[0]);
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") ?? "");
+    const company = String(data.get("company") ?? "");
+    const email = String(data.get("email") ?? "");
+    const message = String(data.get("message") ?? "");
+    const subject = encodeURIComponent(`CipherHill inquiry: ${service}`);
+    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nService: ${service}\n\n${message}`);
+    window.location.href = `mailto:hello@cipherhill.com?subject=${subject}&body=${body}`;
   };
 
   return (

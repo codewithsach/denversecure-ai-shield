@@ -7,10 +7,13 @@ import { About } from "@/components/site/about";
 import { Pricing } from "@/components/site/pricing";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
+import { Audience } from "@/components/site/audience";
+import { Process } from "@/components/site/process";
+import { Legal } from "@/components/site/legal";
 
-const TITLE = "AlpineRed Security — Penetration Testing & Application Security";
+const TITLE = "CipherHill | Cybersecurity & Technology Solutions";
 const DESCRIPTION =
-  "AlpineRed Security delivers penetration testing, application security, and cloud migration security for Series A–C software teams, with clear, developer-friendly reporting.";
+  "CipherHill provides software testing, application security, cloud security, risk and compliance, and security automation services for modern businesses.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,32 +23,25 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://cipherhill.com/" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "keywords",
         content:
-          "penetration testing, application security, cloud security, red team, DevSecOps, security assessment",
+          "software testing, application security, cloud security, risk and compliance, security automation",
       },
     ],
+    links: [{ rel: "canonical", href: "https://cipherhill.com/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ProfessionalService",
-          name: "AlpineRed Security",
+          "@type": "Organization",
+          name: "CipherHill",
+          url: "https://cipherhill.com/",
           description: DESCRIPTION,
-          areaServed: "United States",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "2155 E. Wesley Ave.",
-            addressLocality: "Denver",
-            addressRegion: "CO",
-            postalCode: "80210",
-            addressCountry: "US",
-          },
-          email: "hello@alpineredsecurity.com",
-          telephone: "+1-303-555-0142",
+          email: "hello@cipherhill.com",
         }),
       },
     ],
@@ -61,9 +57,12 @@ function Index() {
         <Hero />
         <Services />
         <CloudMigration />
+         <Audience />
+         <Process />
         <About />
         <Pricing />
         <Contact />
+         <Legal />
       </main>
       <Footer />
     </div>
