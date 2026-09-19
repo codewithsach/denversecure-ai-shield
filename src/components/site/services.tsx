@@ -5,7 +5,7 @@ const SERVICES = [
   {
     icon: Crosshair,
     title: "Software Testing & Security",
-    body: "Whether built traditionally or with AI-assisted development tools, we test software for functionality, security, and real-world weaknesses.",
+    body: "Functional and security testing for software and applications before they reach your users. Whether your software is built traditionally or with AI-assisted development tools, we test it for functionality, security, and real-world weaknesses.",
   },
   {
     icon: Code2,
@@ -48,7 +48,7 @@ export function Services() {
                   href="#contact"
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal"
                 >
-                  Learn more
+                  Learn More
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
