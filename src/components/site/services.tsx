@@ -26,7 +26,7 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="relative py-10 sm:py-14">
+    <section id="services" className="relative py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-widest text-teal uppercase">What We Do</p>

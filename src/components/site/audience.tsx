@@ -10,7 +10,7 @@ const AUDIENCES = [
 
 export function Audience() {
   return (
-    <section id="who-we-help" className="py-10 sm:py-14">
+    <section id="who-we-help" className="py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-widest text-teal uppercase">Who We Help</p>

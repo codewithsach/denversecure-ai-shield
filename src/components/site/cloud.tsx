@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function CloudMigration() {
   return (
-    <section id="ai-security" className="relative overflow-hidden py-10 sm:py-14">
+    <section id="ai-security" className="relative overflow-hidden py-8 sm:py-12">
       <div className="mesh-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal>
