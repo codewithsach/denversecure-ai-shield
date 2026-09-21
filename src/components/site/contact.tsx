@@ -13,19 +13,58 @@ const SERVICES = [
   "Not sure yet",
 ];
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 export function Contact() {
   const [service, setService] = useState(SERVICES[0]);
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const name = String(data.get("name") ?? "");
-    const company = String(data.get("company") ?? "");
-    const email = String(data.get("email") ?? "");
-    const message = String(data.get("message") ?? "");
-    const subject = encodeURIComponent(`CipherHill inquiry: ${service}`);
-    const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nService: ${service}\n\n${message}`);
-    window.location.href = `mailto:hello@cipherhill.com?subject=${subject}&body=${body}`;
+    if (submitting) return;
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const company = String(data.get("company") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+
+    setStatus("idle");
+    setError(null);
+
+    if (!name || !email || !message || !service) {
+      setStatus("error");
+      setError("Please fill in your name, email, and message.");
+      return;
+    }
+    if (!EMAIL_RE.test(email) || email.length > 255) {
+      setStatus("error");
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const { error: insertError } = await supabase.from("contact_submissions").insert({
+        name: name.slice(0, 120),
+        company: company ? company.slice(0, 160) : null,
+        email,
+        service_interest: service,
+        message: message.slice(0, 5000),
+      });
+      if (insertError) throw insertError;
+      setStatus("success");
+      form.reset();
+      setService(SERVICES[0]);
+    } catch {
+      setStatus("error");
+      setError("Something went wrong. Please try again or email hello@cipherhill.com.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
