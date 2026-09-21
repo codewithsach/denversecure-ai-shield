@@ -2,7 +2,8 @@ import { useState, type FormEvent } from "react";
 import { ArrowRight, Mail } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { submitContactRequest } from "@/lib/contact.functions";
 
 const SERVICES = [
   "Software Testing & Security",
@@ -16,6 +17,7 @@ const SERVICES = [
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export function Contact() {
+  const submitRequest = useServerFn(submitContactRequest);
   const [service, setService] = useState(SERVICES[0]);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -48,14 +50,15 @@ export function Contact() {
 
     setSubmitting(true);
     try {
-      const { error: insertError } = await supabase.from("contact_submissions").insert({
-        name: name.slice(0, 120),
-        company: company ? company.slice(0, 160) : null,
-        email,
-        service_interest: service,
-        message: message.slice(0, 5000),
+      await submitRequest({
+        data: {
+          name: name.slice(0, 120),
+          company: company ? company.slice(0, 160) : null,
+          email,
+          service_interest: service,
+          message: message.slice(0, 5000),
+        },
       });
-      if (insertError) throw insertError;
       setStatus("success");
       form.reset();
       setService(SERVICES[0]);
