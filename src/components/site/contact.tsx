@@ -17,6 +17,7 @@ const SERVICES = [
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export function Contact() {
+  const submitRequest = useServerFn(submitContactRequest);
   const [service, setService] = useState(SERVICES[0]);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
