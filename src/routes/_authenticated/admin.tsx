@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -99,9 +99,8 @@ function AdminPage() {
               </thead>
               <tbody>
                 {data.map((row: Submission) => (
-                  <>
+                  <Fragment key={row.id}>
                     <tr
-                      key={row.id}
                       onClick={() => setExpanded(expanded === row.id ? null : row.id)}
                       className="cursor-pointer border-b border-border/60 transition-colors hover:bg-foreground/5"
                     >
@@ -139,13 +138,13 @@ function AdminPage() {
                       </Td>
                     </tr>
                     {expanded === row.id && (
-                      <tr key={`${row.id}-message`} className="border-b border-border/60">
+                      <tr className="border-b border-border/60">
                         <td colSpan={6} className="px-4 py-4 text-muted-foreground whitespace-pre-wrap">
                           {row.message}
                         </td>
                       </tr>
                     )}
-                  </>
+                  </Fragment>
                 ))}
               </tbody>
             </table>
