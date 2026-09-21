@@ -101,9 +101,8 @@ export function Contact() {
               <Field label="Name" name="name">
                 <input required name="name" id="name" autoComplete="name" className={inputClass} placeholder="Your name" />
               </Field>
-              <Field label="Company" name="company">
+              <Field label="Company (optional)" name="company">
                 <input
-                  required
                   name="company"
                   id="company"
                   className={inputClass}
