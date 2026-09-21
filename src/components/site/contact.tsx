@@ -148,9 +148,25 @@ export function Contact() {
                 placeholder="How can CipherHill help?"
               />
             </Field>
-            <Button type="submit" size="lg" className="mt-1 bg-amber text-amber-foreground hover:bg-amber/90">
-              Book a Call <ArrowRight />
+            <Button
+              type="submit"
+              size="lg"
+              disabled={submitting}
+              aria-busy={submitting}
+              className="mt-1 bg-amber text-amber-foreground hover:bg-amber/90 disabled:opacity-70"
+            >
+              {submitting ? "Sending..." : <>Book a Call <ArrowRight /></>}
             </Button>
+            {status === "success" && (
+              <p role="status" className="text-sm text-teal">
+                Thanks! We've received your request. We'll get back to you shortly.
+              </p>
+            )}
+            {status === "error" && error && (
+              <p role="alert" className="text-sm text-destructive">
+                {error}
+              </p>
+            )}
           </form>
         </Reveal>
       </div>
