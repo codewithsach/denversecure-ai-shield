@@ -50,14 +50,15 @@ export function Contact() {
 
     setSubmitting(true);
     try {
-      const { error: insertError } = await supabase.from("contact_submissions").insert({
-        name: name.slice(0, 120),
-        company: company ? company.slice(0, 160) : null,
-        email,
-        service_interest: service,
-        message: message.slice(0, 5000),
+      await submitRequest({
+        data: {
+          name: name.slice(0, 120),
+          company: company ? company.slice(0, 160) : null,
+          email,
+          service_interest: service,
+          message: message.slice(0, 5000),
+        },
       });
-      if (insertError) throw insertError;
       setStatus("success");
       form.reset();
       setService(SERVICES[0]);
