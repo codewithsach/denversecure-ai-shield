@@ -2,7 +2,8 @@ import { useState, type FormEvent } from "react";
 import { ArrowRight, Mail } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
+import { useServerFn } from "@tanstack/react-start";
+import { submitContactRequest } from "@/lib/contact.functions";
 
 const SERVICES = [
   "Software Testing & Security",
