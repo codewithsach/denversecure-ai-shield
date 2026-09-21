@@ -110,7 +110,9 @@ export const submitContactRequest = createServerFn({ method: "POST" })
       },
     });
 
-    const { data: inserted, error } = await supabase
+    const submittedAt = new Date().toISOString();
+
+    const { error } = await supabase
       .from("contact_submissions")
       .insert({
         name: data.name,
@@ -118,12 +120,10 @@ export const submitContactRequest = createServerFn({ method: "POST" })
         email: data.email,
         service_interest: data.service_interest,
         message: data.message,
-      })
-      .select("id, created_at")
-      .single();
+      });
 
-    if (error || !inserted) {
-      console.error(`[contact] Insert failed: ${error?.message ?? "unknown error"}`);
+    if (error) {
+      console.error(`[contact] Insert failed: ${error.message}`);
       throw new Error("Could not save your request.");
     }
 
@@ -135,11 +135,11 @@ export const submitContactRequest = createServerFn({ method: "POST" })
         email: data.email,
         service_interest: data.service_interest,
         message: data.message,
-        created_at: inserted.created_at,
+        created_at: submittedAt,
       });
     } catch (emailError) {
       console.error("[contact] Notification email failed:", emailError);
     }
 
-    return { ok: true as const, id: inserted.id };
+    return { ok: true as const };
   });
