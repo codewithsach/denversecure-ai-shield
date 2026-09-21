@@ -118,21 +118,3 @@ To test:
 Locally: `bun install && bun run dev`, then the same steps against
 `http://localhost:8080`.
 
-## Admin access
-
-1. Go to `/auth` and create an account (or sign in). This route is not linked
-   from the public site.
-2. Grant that account the admin role once, in the Supabase SQL editor:
-
-   ```sql
-   insert into public.user_roles (user_id, role)
-   select id, 'admin' from auth.users where email = 'you@cipherhill.com'
-   on conflict do nothing;
-   ```
-
-3. Sign in and open `/admin`. Unauthenticated visitors are redirected to `/auth`;
-   signed-in users without the admin role get a "Forbidden" message and see no data.
-
-The dashboard lists Date, Name, Company, Email, Service Interest and Status, with
-a status selector for `new` / `contacted` / `closed`. Clicking a row reveals the
-full message.
