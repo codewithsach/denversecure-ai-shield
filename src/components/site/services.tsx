@@ -5,21 +5,25 @@ const SERVICES = [
   {
     icon: Crosshair,
     title: "Software Testing & Security",
+    cta: "Explore our software testing & security services",
     body: "Functional and security testing for software and applications before they reach your users. Whether your software is built traditionally or with AI-assisted development tools, we test it for functionality, security, and real-world weaknesses.",
   },
   {
     icon: Code2,
     title: "Application Security",
+    cta: "Explore our application security services",
     body: "Identify and reduce risk across web applications, APIs, authentication, access control, and the software development lifecycle.",
   },
   {
     icon: Cloud,
     title: "Cloud Security & Migration",
+    cta: "Explore our cloud security & migration services",
     body: "Secure cloud environments and move applications and infrastructure to AWS, Azure, or GCP with security built in.",
   },
   {
     icon: ShieldCheck,
     title: "Risk & Compliance",
+    cta: "Explore our risk & compliance services",
     body: "Understand security risks, identify gaps, and build practical security controls and compliance readiness.",
   },
 ];
@@ -47,9 +51,10 @@ export function Services() {
                 <a
                   href="#contact"
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal"
+                  aria-label={`${s.cta} — contact CipherHill`}
                 >
-                  Learn More
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {s.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </a>
               </div>
             </Reveal>
