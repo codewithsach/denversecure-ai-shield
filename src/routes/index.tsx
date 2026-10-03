@@ -16,6 +16,7 @@ const DESCRIPTION =
   "CipherHill provides software testing, application security, cloud security, risk and compliance, and security automation services for modern businesses.";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },

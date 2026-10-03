@@ -17,6 +17,7 @@ const DESCRIPTION = "Internal CipherHill dashboard for reviewing contact form in
 const STATUSES: SubmissionStatus[] = ["new", "contacted", "closed"];
 
 export const Route = createFileRoute("/_authenticated/admin")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: TITLE },

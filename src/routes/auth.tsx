@@ -8,6 +8,7 @@ const TITLE = "Admin Sign In | CipherHill";
 const DESCRIPTION = "Secure sign in for the CipherHill inquiry dashboard.";
 
 export const Route = createFileRoute("/auth")({
+  staticData: { sitemap: false },
   head: () => ({
     meta: [
       { title: TITLE },
