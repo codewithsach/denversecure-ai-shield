@@ -85,7 +85,7 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden py-10 sm:py-14">
             <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <Reveal>
-          <p className="font-mono text-xs tracking-widest text-teal uppercase">Get Started</p>
+          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">Get Started</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
             Ready to pull the tag?
           </h2>
