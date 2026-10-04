@@ -133,7 +133,7 @@ export function AssessmentCard() {
     st.anchored = false;
     st.dragging = false;
     st.spin = (Math.random() > 0.5 ? 1 : -1) * 0.04;
-    const last = st.pts[SEG];
+    const last = st.pts[SEG]!;
     if (last) last.py = last.y + 2;
     runChecks(false);
   }, [phase, reduced, runChecks]);
@@ -187,7 +187,7 @@ export function AssessmentCard() {
       }
     });
     ro.observe(el);
-    const io = new IntersectionObserver(([e]) => (sim.current.visible = e.isIntersecting));
+    const io = new IntersectionObserver(([e]) => (sim.current.visible = !!e?.isIntersecting));
     io.observe(el);
     return () => {
       ro.disconnect();
@@ -202,8 +202,8 @@ export function AssessmentCard() {
     if (!st.pts.length || st.pts.length !== SEG + 1) hang(false);
     if (!reduced) {
       // gentle initial swing
-      const last = st.pts[SEG];
-      if (st.anchored && Math.abs(last.x - pinX()) < 30 && st.pts[1].y > PIN_Y) last.px -= 3;
+      const last = st.pts[SEG]!;
+      if (st.anchored && Math.abs(last.x - pinX()) < 30 && st.pts[1]!.y > PIN_Y) last.px -= 3;
     }
     let raf = 0;
     const g = 0.35;
@@ -212,7 +212,7 @@ export function AssessmentCard() {
       const pts = st.pts;
       const pin = { x: pinX(), y: PIN_Y };
       for (let i = 0; i < pts.length; i++) {
-        const p = pts[i];
+        const p = pts[i]!;
         if (i === 0 && st.anchored) {
           p.x = p.px = pin.x;
           p.y = p.py = pin.y;
@@ -240,8 +240,8 @@ export function AssessmentCard() {
       }
       for (let k = 0; k < 14; k++) {
         for (let i = 0; i < SEG; i++) {
-          const a = pts[i];
-          const b = pts[i + 1];
+          const a = pts[i]!;
+          const b = pts[i + 1]!;
           const dx = b.x - a.x;
           const dy = b.y - a.y;
           const d = Math.hypot(dx, dy) || 0.001;
@@ -261,8 +261,8 @@ export function AssessmentCard() {
         const d = Math.hypot(st.pointer.x - pin.x, st.pointer.y - pin.y);
         if (d > CORD * s + 60) pull();
       }
-      const a = pts[SEG - 1];
-      const b = pts[SEG];
+      const a = pts[SEG - 1]!;
+      const b = pts[SEG]!;
       if (st.anchored) st.angle = -Math.atan2(b.x - a.x, b.y - a.y) * 0.9;
       else st.angle += st.spin;
     };
@@ -281,8 +281,8 @@ export function AssessmentCard() {
           ctx.strokeStyle = metal;
           ctx.lineWidth = 1.2;
           ctx.beginPath();
-          ctx.moveTo(pts[0].x, pts[0].y);
-          for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+          ctx.moveTo(pts[0]!.x, pts[0]!.y);
+          for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i]!.x, pts[i]!.y);
           ctx.stroke();
           ctx.fillStyle = metal;
           ctx.beginPath();
@@ -291,10 +291,10 @@ export function AssessmentCard() {
         }
       }
       if (tag) {
-        const end = pts[SEG];
+        const end = pts[SEG]!;
         tag.style.transform = `translate(${end.x - (TAG_W * s) / 2}px, ${end.y - GROMMET_Y * s}px) rotate(${st.angle}rad)`;
       }
-      if (!st.anchored && (pts[SEG]?.y ?? 0) > layerH + window.innerHeight) {
+      if (!st.anchored && pts[SEG]!.y > layerH + window.innerHeight) {
         setTagVisible(false);
         return false;
       }
