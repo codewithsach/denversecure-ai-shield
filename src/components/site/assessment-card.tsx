@@ -471,9 +471,9 @@ export function AssessmentCard() {
             />
             <span
               className="pointer-events-none absolute inset-x-0 flex items-center justify-center font-sans font-extrabold tracking-tight text-tag-foreground uppercase"
-              style={{ top: 20 * s, bottom: 6 * s, writingMode: "vertical-rl", fontSize: 10.5 * s, letterSpacing: "0", whiteSpace: "nowrap", fontStretch: "condensed" }}
+              style={{ top: 20 * s, bottom: 6 * s, fontSize: 10.5 * s, letterSpacing: "0", whiteSpace: "nowrap", fontStretch: "condensed" }}
             >
-              UNTESTED · DO NOT DEPLOY
+              <span style={{ writingMode: "vertical-rl" }}>UNTESTED · DO NOT DEPLOY</span>
             </span>
           </div>
         )}
