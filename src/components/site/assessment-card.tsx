@@ -294,7 +294,7 @@ export function AssessmentCard() {
         const end = pts[SEG];
         tag.style.transform = `translate(${end.x - (TAG_W * s) / 2}px, ${end.y - GROMMET_Y * s}px) rotate(${st.angle}rad)`;
       }
-      if (!st.anchored && pts[SEG].y > layerH + window.innerHeight) {
+      if (!st.anchored && (pts[SEG]?.y ?? 0) > layerH + window.innerHeight) {
         setTagVisible(false);
         return false;
       }
