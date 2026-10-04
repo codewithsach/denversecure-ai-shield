@@ -40,6 +40,8 @@
   --color-amber-foreground: var(--amber-foreground);
   --color-success: var(--success);
   --color-tag: var(--tag);
+  --color-tag-foreground: var(--tag-foreground);
+  --color-metal: var(--metal);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -84,6 +86,8 @@
   --amber-foreground: #111412;
   --success: #3F7350;
   --tag: #C8322B;
+  --tag-foreground: #FFFFFF;
+  --metal: #9A9C92;
   --contour: #1B1E1B;
   --contour-opacity: 0.06;
   --chart-1: #D8A54A;
