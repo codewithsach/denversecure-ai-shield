@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AssessmentCard } from "@/components/site/assessment-card";
 
 // Survey-map style contour lines, generated once.
 const CONTOURS = Array.from({ length: 14 }, (_, i) => {
@@ -31,7 +32,7 @@ export function Hero() {
         </g>
       </svg>
 
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-12 lg:px-8">
         <div className="max-w-3xl py-5 sm:py-8">
           <p className="font-mono text-xs tracking-wide text-muted-foreground">
             Security testing · Cloud · Compliance · AI
@@ -60,6 +61,7 @@ export function Hero() {
             Manual + automated testing · OWASP-based methodology · Retest included
           </p>
         </div>
+        <AssessmentCard />
       </div>
     </section>
   );
