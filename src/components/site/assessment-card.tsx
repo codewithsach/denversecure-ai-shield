@@ -394,7 +394,7 @@ export function AssessmentCard() {
         </div>
         <ul className="px-4 pb-2">
           {ROWS.map((row, i) => {
-            const st = rows[i];
+            const st = rows[i] ?? { state: "idle" as const };
             return (
               <li key={row.name} className="border-b border-border/70 py-2.5 last:border-0">
                 <div className="flex items-start justify-between gap-3">
