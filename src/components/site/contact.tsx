@@ -14,11 +14,21 @@ const SERVICES = [
   "Not sure yet",
 ];
 
+const DRIVERS = [
+  "A customer asked for a pentest report",
+  "A compliance audit is coming",
+  "We're launching soon",
+  "We're moving to the cloud",
+  "We had a security incident",
+  "Just exploring",
+];
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export function Contact() {
   const submitRequest = useServerFn(submitContactRequest);
   const [service, setService] = useState(SERVICES[0]);
+  const [driver, setDriver] = useState(DRIVERS[0]);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -56,12 +66,13 @@ export function Contact() {
           company: company ? company.slice(0, 160) : null,
           email,
           service_interest: service,
-          message: message.slice(0, 5000),
+          message: `What's driving this: ${driver}\n\n${message}`.slice(0, 5000),
         },
       });
       setStatus("success");
       form.reset();
       setService(SERVICES[0]);
+      setDriver(DRIVERS[0]);
     } catch {
       setStatus("error");
       setError("Something went wrong. Please try again or email hello@cipherhill.com.");
@@ -72,22 +83,21 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative overflow-hidden py-10 sm:py-14">
-      <div className="mesh-bg pointer-events-none absolute inset-0 -z-10 opacity-70" />
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+            <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <Reveal>
           <p className="font-mono text-xs tracking-widest text-teal uppercase">Get Started</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Ready to Secure Your Software?
+            Ready to pull the tag?
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Whether you're building a new application, moving to the cloud, or strengthening your existing security program, let's talk.
+            Tell us what you're building. You'll hear back from a person within one business day.
           </p>
 
           <a
             href="mailto:hello@cipherhill.com"
-            className="glass mt-8 flex items-center gap-4 rounded-lg p-5 transition-transform hover:-translate-y-1"
+            className="glass mt-8 flex items-center gap-4 rounded-lg p-5 transition-colors hover:border-amber"
           >
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber/15 text-amber">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-border text-muted-foreground">
               <Mail className="h-5 w-5" />
             </span>
             <span className="min-w-0">
@@ -140,6 +150,21 @@ export function Contact() {
                 ))}
               </select>
             </Field>
+            <Field label="What's driving this?" name="driver">
+              <select
+                name="driver"
+                id="driver"
+                value={driver}
+                onChange={(e) => setDriver(e.target.value)}
+                className={inputClass}
+              >
+                {DRIVERS.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
+            </Field>
             <Field label="Message" name="message">
               <textarea
                 required
@@ -157,10 +182,10 @@ export function Contact() {
               aria-busy={submitting}
               className="mt-1 bg-amber text-amber-foreground hover:bg-amber/90 disabled:opacity-70"
             >
-              {submitting ? "Sending..." : <>Book a Call <ArrowRight /></>}
+              {submitting ? "Sending..." : <>Send request <ArrowRight /></>}
             </Button>
             {status === "success" && (
-              <p role="status" className="text-sm text-teal">
+              <p role="status" className="text-sm text-success">
                 Thanks! We've received your request. We'll get back to you shortly.
               </p>
             )}
@@ -177,7 +202,7 @@ export function Contact() {
 }
 
 const inputClass =
-  "w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-teal";
+  "w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-amber";
 
 function Field({
   label,

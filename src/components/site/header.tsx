@@ -8,6 +8,7 @@ const NAV = [
   { href: "#who-we-help", label: "Who We Help" },
   { href: "#about", label: "About" },
   { href: "#pricing", label: "Pricing" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -29,10 +30,8 @@ export function Header() {
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 lg:px-8">
         <a href="#top" className="flex min-w-0 items-center gap-2.5">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal/15 text-teal ring-1 ring-teal/30">
-            <ShieldCheck className="h-5 w-5" />
-          </span>
-          <span className="truncate text-lg font-semibold tracking-tight">Cipher<span className="text-teal">Hill</span></span>
+          <ShieldCheck className="h-6 w-6 shrink-0 text-foreground" aria-hidden="true" />
+          <span className="truncate text-lg font-semibold tracking-tight">Cipher<span className="text-amber">Hill</span></span>
         </a>
 
         <div className="flex items-center gap-2">
@@ -49,7 +48,7 @@ export function Header() {
           </nav>
           <ThemeToggle />
           <Button asChild className="hidden bg-amber text-amber-foreground hover:bg-amber/90 sm:inline-flex">
-            <a href="#contact">Book a Call</a>
+            <a href="#contact">Book an assessment</a>
           </Button>
           <Button
             type="button"
@@ -85,7 +84,7 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 className="mt-2 block rounded-lg bg-amber px-4 py-2.5 text-center text-sm font-semibold text-amber-foreground"
               >
-                Book a Call
+                Book an assessment
               </a>
             </li>
           </ul>
