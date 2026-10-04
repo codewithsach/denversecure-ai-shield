@@ -411,7 +411,7 @@ export function AssessmentCard() {
                   </span>
                 </div>
                 {i === 1 && (
-                  <div className="mt-1 h-[3.25rem] text-xs" aria-live="polite">
+                  <div className="mt-1 h-[2.6rem] text-xs" aria-live="polite">
                     <p className={`text-amber transition-all duration-300 ${detail >= 1 ? "opacity-100" : "-translate-y-1 opacity-0"}`}>
                       User A could read User B's invoices by changing the ID.
                     </p>
@@ -470,8 +470,8 @@ export function AssessmentCard() {
               style={{ top: (GROMMET_Y - 5) * s, width: 10 * s, height: 10 * s }}
             />
             <span
-              className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-center font-sans font-extrabold tracking-tight text-tag-foreground uppercase"
-              style={{ top: 22 * s, writingMode: "vertical-rl", fontSize: 13 * s, letterSpacing: "0.04em" }}
+              className="pointer-events-none absolute inset-x-0 flex items-center justify-center font-sans font-extrabold tracking-tight text-tag-foreground uppercase"
+              style={{ top: 20 * s, bottom: 6 * s, writingMode: "vertical-rl", fontSize: 10.5 * s, letterSpacing: "0", whiteSpace: "nowrap", fontStretch: "condensed" }}
             >
               UNTESTED · DO NOT DEPLOY
             </span>
