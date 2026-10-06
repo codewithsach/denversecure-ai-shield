@@ -366,11 +366,13 @@ export function AssessmentCard() {
           >
             <span className="pointer-events-none absolute inset-1 rounded-[2px] border border-dashed border-white/80" />
             <span className="pointer-events-none absolute top-2 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-[color:var(--metal)] bg-background" />
-            <span
-              className="pointer-events-none absolute inset-x-0 top-9 bottom-3 flex items-center justify-center overflow-hidden font-sans text-[9px] leading-none font-extrabold tracking-[0.03em] whitespace-nowrap text-white uppercase"
-              style={{ writingMode: "vertical-rl" }}
-            >
-              UNTESTED · DO NOT DEPLOY
+            <span className="pointer-events-none absolute inset-x-0 top-9 bottom-3 flex items-center justify-center">
+              <span
+                className="pointer-events-none block whitespace-nowrap font-sans text-[15px] font-bold uppercase leading-none tracking-[0.1em] text-white"
+                style={{ writingMode: "vertical-rl", transform: "scaleY(0.78)", transformOrigin: "center" }}
+              >
+                UNTESTED · DO NOT DEPLOY
+              </span>
             </span>
           </button>
         )}
