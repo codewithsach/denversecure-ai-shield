@@ -253,3 +253,8 @@
 @utility animate-caret {
   animation: caret-blink 1s steps(1) infinite;
 }
+
+html,
+body {
+  overflow-x: clip;
+}

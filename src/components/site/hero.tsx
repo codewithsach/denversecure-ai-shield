@@ -7,7 +7,7 @@ const BADGES = ["Security-Focused", "Practical Approach", "Actionable Results"];
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-[105px] pb-12 sm:pb-16 lg:overflow-visible lg:pt-[137px] lg:pb-[220px]">
+    <section id="top" className="relative overflow-x-clip pt-[105px] pb-12 sm:pb-16 lg:pt-[137px] lg:pb-[220px]">
       <div className="mesh-bg animate-drift pointer-events-none absolute inset-0 -z-10" />
       <div className="grid-lines pointer-events-none absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
       <img
