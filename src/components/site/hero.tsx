@@ -1,47 +1,31 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import heroMountains from "@/assets/hero-mountains.jpg";
 import { Button } from "@/components/ui/button";
-import { AssessmentCard } from "@/components/site/assessment-card";
 
-// Survey-map style contour lines, generated once.
-const CONTOURS = Array.from({ length: 14 }, (_, i) => {
-  const r = 60 + i * 55;
-  const cx = 1200;
-  const cy = 260;
-  const pts = Array.from({ length: 49 }, (_, k) => {
-    const a = (k / 48) * Math.PI * 2;
-    const wobble = 1 + 0.08 * Math.sin(a * 3 + i * 0.7) + 0.05 * Math.cos(a * 5 + i);
-    return `${(cx + Math.cos(a) * r * 1.35 * wobble).toFixed(1)},${(cy + Math.sin(a) * r * wobble).toFixed(1)}`;
-  });
-  return `M${pts.join(" L")}Z`;
-});
+const BADGES = ["Security-Focused", "Practical Approach", "Actionable Results"];
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-12 sm:pt-36 sm:pb-16">
-      <svg
+      <div className="mesh-bg animate-drift pointer-events-none absolute inset-0 -z-10" />
+      <div className="grid-lines pointer-events-none absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
+      <img
+        src={heroMountains}
+        alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
-        style={{ opacity: "var(--contour-opacity)" }}
-        viewBox="0 0 1600 900"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <g fill="none" stroke="var(--contour)" strokeWidth="1.2">
-          {CONTOURS.map((d, i) => (
-            <path key={i} d={d} />
-          ))}
-        </g>
-      </svg>
+        width={1920}
+        height={1080}
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 w-full opacity-50 mix-blend-screen dark:opacity-70"
+      />
 
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-start lg:gap-12 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="max-w-3xl py-5 sm:py-8">
-          <p className="font-mono text-xs tracking-wide text-muted-foreground">
-            Security testing · Cloud · Compliance · AI
-          </p>
+          <p className="font-mono text-sm font-medium tracking-widest text-teal uppercase">CipherHill</p>
+          <p className="mt-2 text-sm text-muted-foreground">Cybersecurity &amp; Technology Solutions</p>
 
-          <h1 className="mt-5 text-4xl leading-[1.1] sm:text-6xl">
-            Secure Your Software.
-            <br />
-            From <span className="text-amber">Code to Cloud</span>.
+          <h1 className="mt-7 text-4xl leading-[1.08] font-semibold sm:text-6xl">
+            Secure Your Software.<br />
+            <span className="text-gradient">From Code to Cloud.</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">
@@ -50,18 +34,26 @@ export function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Button asChild size="lg" className="bg-amber text-amber-foreground hover:bg-amber/90">
-              <a href="#contact">Book a security assessment <ArrowRight /></a>
+              <a href="#contact">Book a Security Assessment <ArrowRight /></a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-border bg-transparent hover:border-amber hover:bg-transparent">
-              <a href="#services">View services</a>
+            <Button asChild size="lg" variant="outline" className="border-teal/40 text-teal hover:bg-teal/10 hover:text-teal">
+              <a href="#services">View Services</a>
             </Button>
           </div>
 
-          <p className="mt-10 font-mono text-xs text-muted-foreground">
-            Manual + automated testing · OWASP-based methodology · Retest included
-          </p>
+          <ul className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-muted-foreground">
+            {BADGES.map((b, i) => (
+              <li key={b} className="flex items-center gap-3">
+                {i > 0 && <span className="text-border">|</span>}
+                <span className="inline-flex items-center gap-1.5">
+                  <ShieldCheck className="h-3.5 w-3.5 text-teal" />
+                  {b}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <AssessmentCard />
+
       </div>
     </section>
   );

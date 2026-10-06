@@ -9,10 +9,9 @@ export function Pricing() {
         <Reveal>
           <div className="glass grid gap-8 rounded-lg p-8 lg:grid-cols-[1fr_auto] lg:items-center lg:p-10">
             <div>
-              <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">Pricing</p>
+              <p className="font-mono text-xs tracking-widest text-teal uppercase">Pricing</p>
               <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Every engagement is different.</h2>
               <p className="mt-4 max-w-2xl text-muted-foreground">Pricing depends on the scope, technology, and security requirements of the project.</p>
-              <p className="mt-3 max-w-2xl text-muted-foreground">Most assessments start from <span className="font-mono text-foreground">$[X]</span> and take 1–3 weeks. You get a fixed quote after a free scoping call.</p>
             </div>
             <Button asChild size="lg" className="bg-amber text-amber-foreground hover:bg-amber/90">
               <a href="#contact">Request a Quote <ArrowRight /></a>

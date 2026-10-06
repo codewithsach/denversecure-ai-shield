@@ -6,15 +6,17 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <span className="flex items-center gap-2.5">
-            <ShieldCheck className="h-6 w-6 shrink-0 text-foreground" aria-hidden="true" />
+            <span className="grid h-9 w-9 place-items-center rounded-lg bg-teal/15 text-teal ring-1 ring-teal/30">
+              <ShieldCheck className="h-5 w-5" />
+            </span>
             <span className="text-lg font-semibold tracking-tight">
-              Cipher<span className="text-amber">Hill</span>
+              Cipher<span className="text-teal">Hill</span>
             </span>
           </span>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             Cybersecurity &amp; Technology Solutions
           </p>
-          <a href="mailto:hello@cipherhill.com" className="mt-5 inline-flex items-center gap-2 text-sm text-amber hover:text-foreground">
+          <a href="mailto:hello@cipherhill.com" className="mt-5 inline-flex items-center gap-2 text-sm text-teal hover:text-foreground">
             <Mail className="h-4 w-4" /> hello@cipherhill.com
           </a>
         </div>
@@ -26,7 +28,7 @@ export function Footer() {
             ["Application Security", "#services"],
             ["Cloud Security & Migration", "#services"],
             ["Risk & Compliance", "#services"],
-            ["AI Security & Automation", "#services"],
+            ["AI Security & Automation", "#ai-security"],
           ]}
         />
         <FooterCol
@@ -35,7 +37,6 @@ export function Footer() {
             ["About", "#about"],
             ["Contact", "#contact"],
             ["Pricing", "#pricing"],
-            ["FAQ", "#faq"],
           ]}
         />
         <FooterCol title="Legal" links={[["Privacy Policy", "#privacy"], ["Terms of Service", "#terms"]]} />
@@ -57,7 +58,7 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
       <ul className="mt-4 grid gap-2.5">
         {links.map(([label, href]) => (
           <li key={label}>
-            <a href={href} className="text-sm text-muted-foreground hover:text-amber">
+            <a href={href} className="text-sm text-muted-foreground hover:text-teal">
               {label}
             </a>
           </li>
