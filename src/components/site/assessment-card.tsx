@@ -160,7 +160,7 @@ export function AssessmentCard() {
       const p = pts.current;
       const g = attached.current ? 0.35 : 0.6;
       for (let i = 0; i < p.length; i++) {
-        const pt = p[i];
+        const pt = p[i]!;
         const vx = (pt.x - pt.px) * 0.985;
         const vy = (pt.y - pt.py) * 0.985;
         pt.px = pt.x;
@@ -171,23 +171,23 @@ export function AssessmentCard() {
       // mouse breeze
       const m = mouse.current;
       if (m && attached.current && !drag.current.active) {
-        const last = p[SEGMENTS];
+        const last = p[SEGMENTS]!;
         const d = Math.hypot(m.x - last.x, m.y - (last.y + 90 * scale.current));
         if (d < 120) last.x += Math.max(-1.5, Math.min(1.5, m.vx * 0.08));
         m.vx *= 0.8;
       }
       if (drag.current.active) {
-        const last = p[SEGMENTS];
+        const last = p[SEGMENTS]!;
         last.x = drag.current.x;
         last.y = drag.current.y;
       }
       for (let k = 0; k < 14; k++) {
         if (attached.current) {
-          p[0].x = pinX();
-          p[0].y = 0;
+          p[0]!.x = pinX();
+          p[0]!.y = 0;
         }
         for (let i = 0; i < SEGMENTS; i++) {
-          const a = p[i], b = p[i + 1];
+          const a = p[i]!, b = p[i + 1]!;
           const dx = b.x - a.x, dy = b.y - a.y;
           const dist = Math.hypot(dx, dy) || 0.001;
           const diff = (dist - SEG) / dist / 2;
@@ -200,7 +200,7 @@ export function AssessmentCard() {
       }
       // detach when overstretched
       if (attached.current && drag.current.active) {
-        const last = p[SEGMENTS];
+        const last = p[SEGMENTS]!;
         if (Math.hypot(last.x - pinX(), last.y) > CORD + 60) {
           drag.current.active = false;
           pull();
@@ -212,11 +212,11 @@ export function AssessmentCard() {
       ctx.strokeStyle = getComputedStyle(stage).getPropertyValue("--cord").trim() || "#9BA6B5";
       ctx.lineWidth = 1.25;
       ctx.beginPath();
-      ctx.moveTo(p[0].x, p[0].y);
-      for (let i = 1; i < p.length; i++) ctx.lineTo(p[i].x, p[i].y);
+      ctx.moveTo(p[0]!.x, p[0]!.y);
+      for (let i = 1; i < p.length; i++) ctx.lineTo(p[i]!.x, p[i]!.y);
       ctx.stroke();
       // tag transform
-      const last = p[SEGMENTS], prev = p[SEGMENTS - 1];
+      const last = p[SEGMENTS]!, prev = p[SEGMENTS - 1]!;
       const ang = Math.atan2(last.y - prev.y, last.x - prev.x) - Math.PI / 2;
       const spin = attached.current ? 0 : (last.y - 0) * 0.004;
       if (tagRef.current) {
@@ -275,7 +275,7 @@ export function AssessmentCard() {
                   <p className="mt-0.5 truncate text-[11px] text-muted-foreground">{r.detail}</p>
                 </div>
                 <span className="shrink-0 pt-0.5 text-[11px]">
-                  <StatusLabel s={rows[i]} />
+                  <StatusLabel s={rows[i]!} />
                 </span>
               </div>
               {r.result === "high" && (
