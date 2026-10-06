@@ -241,7 +241,7 @@ export function AssessmentCard() {
   const showTag = hydrated && tagState !== "gone";
 
   return (
-    <div className="mx-auto w-full max-w-[420px] font-mono lg:mx-0 lg:ml-auto">
+    <div className="relative mx-auto w-full max-w-[420px] overflow-visible font-mono lg:mx-0 lg:ml-auto">
       <div className="rounded-lg border border-border bg-card text-xs">
         <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
           <span className="truncate text-muted-foreground">ASSESSMENT · example-app.com</span>
@@ -309,7 +309,7 @@ export function AssessmentCard() {
       {/* Tag stage */}
       <div
         ref={stageRef}
-        className="relative h-[220px] sm:h-[300px] [--cord:#9BA6B5]"
+        className="relative h-[220px] sm:h-[300px] lg:absolute lg:inset-x-0 lg:top-full [--cord:#9BA6B5]"
         onPointerMove={(e) => {
           const p = local(e);
           const prev = mouse.current;
