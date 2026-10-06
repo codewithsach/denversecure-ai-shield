@@ -239,3 +239,17 @@
     transition: none;
   }
 }
+
+:root,
+.dark {
+  --tag-red: #c8322b;
+  --metal: #b8c1cc;
+  --metal-dark: #5c6675;
+}
+
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+@utility animate-caret {
+  animation: caret-blink 1s steps(1) infinite;
+}
