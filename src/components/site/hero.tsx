@@ -55,7 +55,7 @@ export function Hero() {
             ))}
           </ul>
         </div>
-        <div className="lg:pt-24">
+        <div className="lg:pt-16">
           <AssessmentCard />
         </div>
         </div>

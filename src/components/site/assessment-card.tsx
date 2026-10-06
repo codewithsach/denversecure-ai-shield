@@ -295,9 +295,9 @@ export function AssessmentCard() {
           ))}
         </ul>
         <div className="flex min-h-11 items-center justify-between gap-2 border-t border-border px-4 py-2">
-          <span className="text-[10px] text-muted-foreground">Example engagement · details changed</span>
+          <span className="truncate text-[10px] text-muted-foreground">Example engagement · details changed</span>
           <span
-            className={`-rotate-2 rounded-sm border border-teal px-1.5 py-0.5 text-[10px] text-teal transition-opacity duration-500 ${
+            className={`-rotate-2 shrink-0 whitespace-nowrap rounded-sm border border-teal px-1.5 py-0.5 text-[10px] text-teal transition-opacity duration-500 ${
               verified ? "opacity-100" : "opacity-0"
             }`}
           >
@@ -367,7 +367,7 @@ export function AssessmentCard() {
             <span className="pointer-events-none absolute inset-1 rounded-[2px] border border-dashed border-white/80" />
             <span className="pointer-events-none absolute top-2 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-[color:var(--metal)] bg-background" />
             <span
-              className="pointer-events-none absolute inset-x-0 top-8 bottom-2 flex items-center justify-center font-sans text-[13px] font-extrabold tracking-[0.12em] whitespace-nowrap text-white uppercase"
+              className="pointer-events-none absolute inset-x-0 top-8 bottom-2 flex items-center justify-center font-sans text-[10.5px] font-extrabold tracking-[0.08em] whitespace-nowrap text-white uppercase"
               style={{ writingMode: "vertical-rl" }}
             >
               UNTESTED · DO NOT DEPLOY
