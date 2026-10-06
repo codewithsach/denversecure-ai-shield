@@ -355,7 +355,7 @@ export function AssessmentCard() {
               drag.current.y = p.y;
             }}
             onPointerUp={() => (drag.current.active = false)}
-            className={`absolute top-0 left-0 h-[180px] w-[44px] origin-[22px_6px] touch-none cursor-grab rounded-[4px] bg-[color:var(--tag-red)] shadow-[0_10px_18px_-6px_rgb(0_0_0/0.55)] transition-opacity duration-500 will-change-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal active:cursor-grabbing ${
+            className={`absolute top-0 left-0 h-[200px] w-[44px] origin-[22px_6px] touch-none cursor-grab rounded-[4px] bg-[color:var(--tag-red)] shadow-[0_10px_18px_-6px_rgb(0_0_0/0.55)] transition-opacity duration-500 will-change-transform focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal active:cursor-grabbing ${
               tagState === "hanging" ? "opacity-100" : ""
             }`}
             style={
@@ -367,7 +367,7 @@ export function AssessmentCard() {
             <span className="pointer-events-none absolute inset-1 rounded-[2px] border border-dashed border-white/80" />
             <span className="pointer-events-none absolute top-2 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-[color:var(--metal)] bg-background" />
             <span
-              className="pointer-events-none absolute inset-x-0 top-8 bottom-2 flex items-center justify-center font-sans text-[10.5px] font-extrabold tracking-[0.08em] whitespace-nowrap text-white uppercase"
+              className="pointer-events-none absolute inset-x-0 top-9 bottom-3 flex items-center justify-center overflow-hidden font-sans text-[9px] leading-none font-extrabold tracking-[0.03em] whitespace-nowrap text-white uppercase"
               style={{ writingMode: "vertical-rl" }}
             >
               UNTESTED · DO NOT DEPLOY
