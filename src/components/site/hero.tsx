@@ -7,7 +7,7 @@ const BADGES = ["Security-Focused", "Practical Approach", "Actionable Results"];
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-28 pb-12 sm:pt-36 sm:pb-16 lg:overflow-visible lg:pt-52 lg:pb-[220px]">
+    <section id="top" className="relative overflow-hidden pt-[105px] pb-12 sm:pb-16 lg:overflow-visible lg:pt-[137px] lg:pb-[220px]">
       <div className="mesh-bg animate-drift pointer-events-none absolute inset-0 -z-10" />
       <div className="grid-lines pointer-events-none absolute inset-0 -z-10 opacity-40 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
       <img
@@ -21,7 +21,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-[1fr_420px] lg:items-start lg:gap-12">
-        <div className="max-w-3xl py-5 sm:py-8 lg:py-0">
+        <div className="max-w-3xl pb-5 sm:pb-8 lg:pb-0">
           <p className="font-mono text-sm font-medium tracking-widest text-teal uppercase">CipherHill</p>
           <p className="mt-2 text-sm text-muted-foreground">Cybersecurity &amp; Technology Solutions</p>
 
