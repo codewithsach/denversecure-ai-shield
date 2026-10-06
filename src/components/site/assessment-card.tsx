@@ -368,8 +368,8 @@ export function AssessmentCard() {
             <span className="pointer-events-none absolute top-2 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-[color:var(--metal)] bg-background" />
             <span className="pointer-events-none absolute inset-x-0 top-9 bottom-3 flex items-center justify-center">
               <span
-                className="pointer-events-none block whitespace-nowrap font-sans text-[15px] font-bold uppercase leading-none tracking-[0.1em] text-white"
-                style={{ writingMode: "vertical-rl", transform: "scaleY(0.78)", transformOrigin: "center" }}
+                className="pointer-events-none block whitespace-nowrap font-sans text-[15px] font-bold uppercase leading-none tracking-[0.08em] text-white"
+                style={{ writingMode: "vertical-rl", transform: "scaleY(0.55)", transformOrigin: "center" }}
               >
                 UNTESTED · DO NOT DEPLOY
               </span>
