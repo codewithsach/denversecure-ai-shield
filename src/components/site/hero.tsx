@@ -1,6 +1,7 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import heroMountains from "@/assets/hero-mountains.jpg";
 import { Button } from "@/components/ui/button";
+import { AssessmentCard } from "@/components/site/assessment-card";
 
 const BADGES = ["Security-Focused", "Practical Approach", "Actionable Results"];
 
@@ -19,6 +20,7 @@ export function Hero() {
       />
 
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_420px] lg:gap-12">
         <div className="max-w-3xl py-5 sm:py-8">
           <p className="font-mono text-sm font-medium tracking-widest text-teal uppercase">CipherHill</p>
           <p className="mt-2 text-sm text-muted-foreground">Cybersecurity &amp; Technology Solutions</p>
@@ -52,6 +54,10 @@ export function Hero() {
               </li>
             ))}
           </ul>
+        </div>
+        <div className="lg:pt-24">
+          <AssessmentCard />
+        </div>
         </div>
 
       </div>
