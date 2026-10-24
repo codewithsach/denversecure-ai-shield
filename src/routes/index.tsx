@@ -13,7 +13,7 @@ import { Legal } from "@/components/site/legal";
 
 const TITLE = "CipherHill | Cybersecurity & Technology Solutions";
 const DESCRIPTION =
-  "CipherHill provides software testing, application security, cloud security, and compliance readiness for modern software and cloud environments.";
+  "CipherHill delivers application security testing, cloud security architecture, and compliance readiness for startups and modern software teams.";
 const SOCIAL_DESCRIPTION = "CipherHill provides software testing, application security, and cloud security services.";
 
 export const Route = createFileRoute("/")({
