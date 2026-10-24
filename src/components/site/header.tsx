@@ -10,7 +10,8 @@ const NAV = [
   { href: "#pricing", label: "Pricing" },
 ];
 
-export function Header() {
+export function Header({ homeLinks = false }: { homeLinks?: boolean }) {
+  const destination = (href: string) => homeLinks ? `/${href}` : href;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -28,7 +29,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3.5 lg:px-8">
-        <a href="#top" className="flex min-w-0 items-center gap-2.5">
+        <a href={destination("#top")} className="flex min-w-0 items-center gap-2.5">
           <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-teal/15 text-teal ring-1 ring-teal/30">
             <ShieldCheck className="h-5 w-5" />
           </span>
@@ -40,7 +41,7 @@ export function Header() {
             {NAV.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={destination(item.href)}
                 className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
@@ -49,7 +50,7 @@ export function Header() {
           </nav>
           <ThemeToggle />
           <Button asChild className="hidden bg-amber text-amber-foreground hover:bg-amber/90 sm:inline-flex">
-            <a href="#contact">Book a Call</a>
+            <a href={destination("#contact")}>Book a Call</a>
           </Button>
           <Button
             type="button"
@@ -71,7 +72,7 @@ export function Header() {
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={destination(item.href)}
                   onClick={() => setOpen(false)}
                   className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground hover:text-foreground"
                 >
@@ -81,7 +82,7 @@ export function Header() {
             ))}
             <li>
               <a
-                href="#contact"
+                href={destination("#contact")}
                 onClick={() => setOpen(false)}
                 className="mt-2 block rounded-lg bg-amber px-4 py-2.5 text-center text-sm font-semibold text-amber-foreground"
               >

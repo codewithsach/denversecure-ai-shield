@@ -11,6 +11,7 @@ const SERVICES = [
   {
     icon: Code2,
     title: "Application Security",
+    href: "/application-security",
     cta: "Explore our application security services",
     body: "Identify and reduce risk across web applications, APIs, authentication, access control, and the software development lifecycle.",
   },
@@ -49,9 +50,9 @@ export function Services() {
                 <h3 className="mt-5 text-xl font-semibold tracking-tight">{s.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
                 <a
-                  href="#contact"
+                  href={"href" in s ? s.href : "#contact"}
                   className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-teal"
-                  aria-label={`${s.cta} — contact CipherHill`}
+                  aria-label={"href" in s ? s.cta : `${s.cta} — contact CipherHill`}
                 >
                   {s.cta}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />

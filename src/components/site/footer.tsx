@@ -1,6 +1,6 @@
 import { Mail, ShieldCheck } from "lucide-react";
 
-export function Footer() {
+export function Footer({ homeLinks = false }: { homeLinks?: boolean }) {
   return (
     <footer className="border-t border-border py-12">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
@@ -22,16 +22,18 @@ export function Footer() {
         </div>
 
         <FooterCol
+          homeLinks={homeLinks}
           title="Services"
           links={[
             ["Software Testing & Security", "#services"],
-            ["Application Security", "#services"],
+            ["Application Security", "/application-security"],
             ["Cloud Security & Migration", "#services"],
             ["Risk & Compliance", "#services"],
             ["AI Security & Automation", "#ai-security"],
           ]}
         />
         <FooterCol
+          homeLinks={homeLinks}
           title="Company"
           links={[
             ["About", "#about"],
@@ -39,7 +41,7 @@ export function Footer() {
             ["Pricing", "#pricing"],
           ]}
         />
-        <FooterCol title="Legal" links={[["Privacy Policy", "#privacy"], ["Terms of Service", "#terms"]]} />
+        <FooterCol homeLinks={homeLinks} title="Legal" links={[["Privacy Policy", "#privacy"], ["Terms of Service", "#terms"]]} />
       </div>
 
       <div className="mx-auto mt-8 max-w-7xl border-t border-border px-5 pt-6 lg:px-8">
@@ -51,14 +53,14 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: [string, string][] }) {
+function FooterCol({ title, links, homeLinks = false }: { title: string; links: [string, string][]; homeLinks?: boolean }) {
   return (
     <div>
       <h3 className="text-sm font-semibold">{title}</h3>
       <ul className="mt-4 grid gap-2.5">
         {links.map(([label, href]) => (
           <li key={label}>
-            <a href={href} className="text-sm text-muted-foreground hover:text-teal">
+            <a href={homeLinks && href.startsWith("#") ? `/${href}` : href} className="text-sm text-muted-foreground hover:text-teal">
               {label}
             </a>
           </li>
