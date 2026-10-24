@@ -26,8 +26,8 @@ export function Hero() {
           <p className="mt-2 text-sm text-muted-foreground">Cybersecurity &amp; Technology Solutions</p>
 
           <h1 className="mt-7 text-4xl leading-[1.08] font-semibold sm:text-6xl">
-            CipherHill<br />
-            <span>Cybersecurity &amp; Technology Solutions</span>
+            CipherHill —<br />
+            <span>Modern Cybersecurity &amp; Software Testing</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-base text-muted-foreground sm:text-lg">

@@ -105,10 +105,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "CipherHill",
+          alternateName: ["Cipher Hill"],
           url: "https://cipherhill.com",
           logo: "https://cipherhill.com/favicon.ico",
           description:
-            "CipherHill provides software testing, application security, cloud security, and compliance readiness.",
+            "CipherHill provides software testing, application security, cloud security, and compliance readiness for modern engineering teams.",
+          knowsAbout: [
+            "Application Security",
+            "Penetration Testing",
+            "Cloud Security",
+            "Software Security Testing",
+            "Cybersecurity Solutions",
+          ],
           contactPoint: {
             "@type": "ContactPoint",
             email: "hello@cipherhill.com",
