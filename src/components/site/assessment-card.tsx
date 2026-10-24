@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 type Phase = "untested" | "running" | "verified";
 type RowStatus = "idle" | "checking" | "pass" | "high" | "fixed" | "low";
@@ -68,15 +69,15 @@ export function AssessmentCard() {
   };
   const later = (ms: number, fn: () => void) => timers.current.push(window.setTimeout(fn, ms));
 
-  const pinX = () => (stageRef.current?.clientWidth ?? 420) * 0.58;
+  const pinX = () => (stageRef.current?.clientWidth ?? 420) * (scale.current < 1 ? 0.5 : 0.58);
 
   const hang = useCallback((swing: boolean) => {
     const x0 = pinX();
     const angle = swing ? 0.55 : 0;
     const arr: Pt[] = [];
     for (let i = 0; i <= SEGMENTS; i++) {
-      const x = x0 + Math.sin(angle) * SEG * i;
-      const y = Math.cos(angle) * SEG * i - (swing ? 40 : 0);
+      const x = x0 + Math.sin(angle) * SEG * scale.current * i;
+      const y = Math.cos(angle) * SEG * scale.current * i - (swing ? 40 : 0);
       arr.push({ x, y, px: x, py: y });
     }
     pts.current = arr;
@@ -87,14 +88,22 @@ export function AssessmentCard() {
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReduced(mq.matches);
-    scale.current = window.innerWidth < 640 ? 0.8 : 1;
+    const mobile = window.matchMedia("(max-width: 639px)");
+    const resize = () => {
+      scale.current = mobile.matches ? 0.75 : 1;
+    };
+    resize();
+    mobile.addEventListener("change", resize);
     setPhase("untested");
     setRows(ROWS.map(() => "idle"));
     setFinding(0);
     hang(!mq.matches);
     setTagState("hanging");
     setHydrated(true);
-    return clearTimers;
+    return () => {
+      clearTimers();
+      mobile.removeEventListener("change", resize);
+    };
   }, [hang]);
 
   const runChecks = useCallback(() => {
@@ -146,8 +155,10 @@ export function AssessmentCard() {
   useEffect(() => {
     if (!hydrated || reduced || tagState === "gone") return;
     let raf = 0;
-    const canvas = canvasRef.current!;
-    const ctx = canvas.getContext("2d")!;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
     const step = () => {
       const stage = stageRef.current;
       if (!stage) return;
@@ -190,7 +201,7 @@ export function AssessmentCard() {
           const a = p[i]!, b = p[i + 1]!;
           const dx = b.x - a.x, dy = b.y - a.y;
           const dist = Math.hypot(dx, dy) || 0.001;
-          const diff = (dist - SEG) / dist / 2;
+          const diff = (dist - SEG * scale.current) / dist / 2;
           const fixA = attached.current && i === 0;
           const fixB = drag.current.active && i + 1 === SEGMENTS;
           if (fixA && !fixB) { b.x -= dx * diff * 2; b.y -= dy * diff * 2; }
@@ -241,20 +252,21 @@ export function AssessmentCard() {
   const showTag = hydrated && tagState !== "gone";
 
   return (
-    <div className="relative mx-auto w-full max-w-[420px] overflow-visible font-mono lg:mx-0 lg:ml-auto">
+    <div className="relative mx-auto w-full max-w-xs overflow-visible font-mono sm:max-w-[420px] lg:mx-0 lg:ml-auto">
       <div className="rounded-lg border border-border bg-card text-xs">
-        <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
-          <span className="truncate text-muted-foreground">ASSESSMENT · example-app.com</span>
-          <div className="flex shrink-0 items-center gap-2">
+        <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 border-b border-border px-3 py-2 sm:flex sm:justify-between sm:px-4 sm:py-3">
+          <span className="col-span-2 min-w-0 text-[11px] text-muted-foreground sm:truncate sm:text-xs">ASSESSMENT · example-app.com</span>
+          <div className="col-span-2 flex shrink-0 items-center justify-between gap-2 sm:justify-start">
             {hydrated && (
-              <button
+              <Button
+                variant="ghost"
                 type="button"
                 onClick={verified ? rehang : pull}
                 disabled={phase === "running"}
-                className="rounded border border-border px-2 py-0.5 text-[11px] text-muted-foreground transition-colors hover:border-teal hover:text-teal focus-visible:outline-2 focus-visible:outline-teal disabled:opacity-40"
+                className="h-8 rounded border border-border px-2 py-0.5 text-[11px] text-muted-foreground transition-colors hover:border-teal hover:text-teal focus-visible:outline-2 focus-visible:outline-teal disabled:opacity-40 sm:h-auto"
               >
                 {verified ? "Re-hang tag" : "Pull tag"}
-              </button>
+              </Button>
             )}
             <span
               className={`rounded-full border px-2 py-0.5 text-[11px] ${
@@ -268,14 +280,14 @@ export function AssessmentCard() {
         </div>
         <ul>
           {ROWS.map((r, i) => (
-            <li key={r.name} className="border-b border-border px-4 py-2.5 last:border-b-0">
+            <li key={r.name} className="border-b border-border px-3 py-2 last:border-b-0 sm:px-4 sm:py-2.5">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="text-foreground">{r.name}</p>
                   <p className="mt-0.5 truncate text-[11px] text-muted-foreground">{r.detail}</p>
                 </div>
                 <span className="shrink-0 pt-0.5 text-[11px]">
-                  <StatusLabel s={rows[i]!} />
+                  <StatusLabel s={rows[i] ?? "idle"} />
                 </span>
               </div>
               {r.result === "high" && (
@@ -294,8 +306,8 @@ export function AssessmentCard() {
             </li>
           ))}
         </ul>
-        <div className="flex min-h-11 items-center justify-between gap-2 border-t border-border px-4 py-2">
-          <span className="truncate text-[10px] text-muted-foreground">Example engagement · details changed</span>
+        <div className="grid min-h-11 justify-items-start gap-2 border-t border-border px-3 py-2 sm:flex sm:items-center sm:justify-between sm:px-4">
+          <span className="min-w-0 text-[10px] text-muted-foreground sm:truncate">Example engagement · details changed</span>
           <span
             className={`-rotate-2 shrink-0 whitespace-nowrap rounded-sm border border-teal px-1.5 py-0.5 text-[10px] text-teal transition-opacity duration-500 ${
               verified ? "opacity-100" : "opacity-0"
@@ -309,7 +321,7 @@ export function AssessmentCard() {
       {/* Tag stage */}
       <div
         ref={stageRef}
-        className="relative h-[220px] sm:h-[300px] lg:absolute lg:inset-x-0 lg:top-full [--cord:#9BA6B5]"
+        className="relative h-[240px] sm:h-[300px] lg:absolute lg:inset-x-0 lg:top-full [--cord:#9BA6B5]"
         onPointerMove={(e) => {
           const p = local(e);
           const prev = mouse.current;
@@ -326,12 +338,11 @@ export function AssessmentCard() {
         {!reduced && <canvas ref={canvasRef} className="pointer-events-none absolute inset-x-0 top-0 h-[300px] w-full" />}
         {/* pin */}
         <span
-          className="absolute -top-1.5 h-3 w-3 rounded-full border-2 border-[color:var(--metal-dark)] bg-[color:var(--metal)]"
-          style={{ left: "calc(58% - 6px)" }}
+          className="absolute -top-1.5 left-[calc(50%-6px)] h-3 w-3 rounded-full border-2 border-[color:var(--metal-dark)] bg-[color:var(--metal)] sm:left-[calc(58%-6px)]"
           aria-hidden="true"
         />
         {reduced && showTag && (
-          <span className="absolute top-0 h-[70px] w-px bg-[color:var(--cord)]" style={{ left: "58%" }} aria-hidden="true" />
+          <span className="absolute top-0 left-1/2 h-[52.5px] w-px bg-[color:var(--cord)] sm:left-[58%] sm:h-[70px]" aria-hidden="true" />
         )}
         {showTag && (
           <button
@@ -360,7 +371,7 @@ export function AssessmentCard() {
             }`}
             style={
               reduced
-                ? { transform: `translate(calc(${pinX()}px - 22px), 64px) scale(${scale.current})` }
+                ? { transform: `translate(calc(${pinX()}px - 22px), ${(CORD - 6) * scale.current}px) scale(${scale.current})` }
                 : { transform: "translate(-999px,-999px)" }
             }
           >
@@ -378,8 +389,7 @@ export function AssessmentCard() {
         )}
         {showTag && tagState === "hanging" && (
           <div
-            className="pointer-events-none absolute bottom-3 flex items-end gap-1 text-[11px] text-muted-foreground sm:bottom-6"
-            style={{ right: "calc(42% + 34px)" }}
+            className="pointer-events-none absolute top-[170px] right-[calc(50%+24px)] flex items-end gap-1 whitespace-nowrap text-[10px] text-muted-foreground sm:top-auto sm:right-[calc(42%+34px)] sm:bottom-6 sm:text-[11px]"
             aria-hidden="true"
           >
             <span>Pull the tag</span>
