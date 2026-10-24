@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 Assessment cord geometry and tag transforms share a breakpoint-aware scale so the pin, cord, and tag remain connected when the viewport changes.
 Public service detail pages use individual TanStack routes with their own metadata and sitemap decisions; shared navigation resolves homepage anchors from those pages so links remain functional.
+The sitemap is served from public/sitemap.xml, not a competing server route; update its entries when public pages change and omit private/auth pages and non-page-specific lastmod values.
