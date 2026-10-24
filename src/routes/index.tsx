@@ -36,19 +36,6 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [{ rel: "canonical", href: "https://cipherhill.com/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "CipherHill",
-          url: "https://cipherhill.com/",
-          description: DESCRIPTION,
-          email: "hello@cipherhill.com",
-        }),
-      },
-    ],
   }),
   component: Index,
 });

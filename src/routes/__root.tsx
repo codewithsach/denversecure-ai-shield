@@ -98,6 +98,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "CipherHill",
+          url: "https://cipherhill.com",
+          logo: "https://cipherhill.com/favicon.ico",
+          description:
+            "CipherHill provides software testing, application security, cloud security, and compliance readiness.",
+          contactPoint: {
+            "@type": "ContactPoint",
+            email: "hello@cipherhill.com",
+            contactType: "customer service",
+          },
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
