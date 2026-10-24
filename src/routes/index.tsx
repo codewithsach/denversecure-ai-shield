@@ -13,7 +13,8 @@ import { Legal } from "@/components/site/legal";
 
 const TITLE = "CipherHill | Cybersecurity & Technology Solutions";
 const DESCRIPTION =
-  "CipherHill provides software testing, application security, cloud security, risk and compliance, and security automation services for modern businesses.";
+  "CipherHill provides software testing, application security, cloud security, and compliance readiness for modern software and cloud environments.";
+const SOCIAL_DESCRIPTION = "CipherHill provides software testing, application security, and cloud security services.";
 
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -22,14 +23,16 @@ export const Route = createFileRoute("/")({
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESCRIPTION },
+      { property: "og:description", content: SOCIAL_DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://cipherhill.com/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: SOCIAL_DESCRIPTION },
       {
         name: "keywords",
         content:
-          "software testing, application security, cloud security, risk and compliance, security automation",
+          "CipherHill, cipherhill.com, application security, cloud security, software testing",
       },
     ],
     links: [{ rel: "canonical", href: "https://cipherhill.com/" }],
