@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 Assessment cord geometry and tag transforms share a breakpoint-aware scale so the pin, cord, and tag remain connected when the viewport changes.
+Public service detail pages use individual TanStack routes with their own metadata and sitemap decisions; shared navigation resolves homepage anchors from those pages so links remain functional.

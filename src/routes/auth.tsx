@@ -71,7 +71,7 @@ function AuthPage() {
             <ShieldCheck className="h-5 w-5" />
           </span>
           <div>
-            <p className="text-sm font-semibold">CipherHill Admin</p>
+            <h1 className="text-sm font-semibold">CipherHill Admin Sign In</h1>
             <p className="font-mono text-xs text-muted-foreground">Inquiry dashboard</p>
           </div>
         </div>
